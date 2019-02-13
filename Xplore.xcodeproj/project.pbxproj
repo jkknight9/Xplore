@@ -8,22 +8,86 @@
 
 /* Begin PBXBuildFile section */
 		E9606073220A11C4009E6801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606072220A11C4009E6801 /* AppDelegate.swift */; };
-		E9606075220A11C4009E6801 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606074220A11C4009E6801 /* ViewController.swift */; };
 		E9606078220A11C4009E6801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9606076220A11C4009E6801 /* Main.storyboard */; };
 		E960607B220A11C4009E6801 /* Xplore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9606079220A11C4009E6801 /* Xplore.xcdatamodeld */; };
 		E960607D220A11C9009E6801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E960607C220A11C9009E6801 /* Assets.xcassets */; };
 		E9606080220A11C9009E6801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E960607E220A11C9009E6801 /* LaunchScreen.storyboard */; };
+		E9606088220A1586009E6801 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9606087220A1585009E6801 /* GoogleService-Info.plist */; };
+		E9606094220A2CA0009E6801 /* SignInFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9606093220A2CA0009E6801 /* SignInFlow.storyboard */; };
+		E9606097220A2E58009E6801 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606096220A2E58009E6801 /* LandingPageViewController.swift */; };
+		E9606099220A2E8A009E6801 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606098220A2E8A009E6801 /* IntroductionViewController.swift */; };
+		E960609B220A2EB5009E6801 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960609A220A2EB5009E6801 /* LoginPageViewController.swift */; };
+		E960609D220A2ECA009E6801 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960609C220A2ECA009E6801 /* ForgotPasswordViewController.swift */; };
+		E960609F220A2EDE009E6801 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960609E220A2EDE009E6801 /* SignUpViewController.swift */; };
+		E96060A1220A5989009E6801 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060A0220A5989009E6801 /* FirestoreFetchable.swift */; };
+		E96060A4220A5C68009E6801 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060A3220A5C68009E6801 /* FirebaseManager.swift */; };
+		E96060A6220A667D009E6801 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060A5220A667D009E6801 /* AppUser.swift */; };
+		E96060A8220B872E009E6801 /* FirebaseStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060A7220B872E009E6801 /* FirebaseStorable.swift */; };
+		E96060AA220B9BED009E6801 /* Adventure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060A9220B9BED009E6801 /* Adventure.swift */; };
+		E96060AC220BA539009E6801 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060AB220BA539009E6801 /* Photo.swift */; };
+		E9B12F2D2211F9C100C76D93 /* CreateAdventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */; };
+		E9B12F2F2211FC7200C76D93 /* MyAdventuresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */; };
+		E9B12F312212016100C76D93 /* MyAdventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F302212016100C76D93 /* MyAdventureViewController.swift */; };
+		E9B12F352212349600C76D93 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F342212349600C76D93 /* UIViewControllerExtension.swift */; };
+		E9B12F37221235D200C76D93 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F36221235D200C76D93 /* PhotoCollectionViewCell.swift */; };
+		E9B12F39221239A800C76D93 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F38221239A800C76D93 /* StyleGuide.swift */; };
+		E9B12F3B22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F3A22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift */; };
+		E9B12F3D22137B6900C76D93 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F3C22137B6900C76D93 /* MapViewController.swift */; };
+		E9B12F3F22137BA500C76D93 /* MapAndListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F3E22137BA500C76D93 /* MapAndListViewController.swift */; };
+		E9B12F4122137BBC00C76D93 /* AdventureListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F4022137BBC00C76D93 /* AdventureListTableViewController.swift */; };
+		E9B12F4322139D2200C76D93 /* MyPhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F4222139D2100C76D93 /* MyPhotoDetailViewController.swift */; };
+		E9B12F472213A86600C76D93 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B12F462213A86600C76D93 /* MapKit.framework */; };
+		E9B9EEBD220CA84500410A4C /* AppUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9EEBC220CA84500410A4C /* AppUserController.swift */; };
+		E9B9EEBF220CB45400410A4C /* AdventureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9EEBE220CB45400410A4C /* AdventureController.swift */; };
+		E9B9EEC1220CEB7F00410A4C /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9EEC0220CEB7F00410A4C /* PhotoController.swift */; };
+		E9B9EEC5220E48D500410A4C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9EEC4220E48D500410A4C /* HomeViewController.swift */; };
+		E9B9EEC7220F466500410A4C /* AdventureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9EEC6220F466500410A4C /* AdventureDetailViewController.swift */; };
+		E9B9EEC9220F46EF00410A4C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9EEC8220F46EF00410A4C /* SettingsViewController.swift */; };
+		F9F811FF93F64609792CE092 /* Pods_Xplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4078065CB717FB16C0E254E8 /* Pods_Xplore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4078065CB717FB16C0E254E8 /* Pods_Xplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60D174C90CCC230D9DF8F13D /* Pods-Xplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xplore/Pods-Xplore.debug.xcconfig"; sourceTree = "<group>"; };
+		AA6C3EE04F3A1EFAA274119E /* Pods-Xplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xplore/Pods-Xplore.release.xcconfig"; sourceTree = "<group>"; };
 		E960606F220A11C4009E6801 /* Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9606072220A11C4009E6801 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9606074220A11C4009E6801 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9606077220A11C4009E6801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E960607A220A11C4009E6801 /* Xplore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Xplore.xcdatamodel; sourceTree = "<group>"; };
 		E960607C220A11C9009E6801 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E960607F220A11C9009E6801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9606081220A11C9009E6801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9606087220A1585009E6801 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E9606093220A2CA0009E6801 /* SignInFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInFlow.storyboard; sourceTree = "<group>"; };
+		E9606096220A2E58009E6801 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
+		E9606098220A2E8A009E6801 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		E960609A220A2EB5009E6801 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		E960609C220A2ECA009E6801 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		E960609E220A2EDE009E6801 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E96060A0220A5989009E6801 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
+		E96060A3220A5C68009E6801 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		E96060A5220A667D009E6801 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		E96060A7220B872E009E6801 /* FirebaseStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorable.swift; sourceTree = "<group>"; };
+		E96060A9220B9BED009E6801 /* Adventure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adventure.swift; sourceTree = "<group>"; };
+		E96060AB220BA539009E6801 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdventureViewController.swift; sourceTree = "<group>"; };
+		E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdventuresTableViewCell.swift; sourceTree = "<group>"; };
+		E9B12F302212016100C76D93 /* MyAdventureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdventureViewController.swift; sourceTree = "<group>"; };
+		E9B12F342212349600C76D93 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		E9B12F36221235D200C76D93 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9B12F38221239A800C76D93 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		E9B12F3A22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9B12F3C22137B6900C76D93 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E9B12F3E22137BA500C76D93 /* MapAndListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAndListViewController.swift; sourceTree = "<group>"; };
+		E9B12F4022137BBC00C76D93 /* AdventureListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureListTableViewController.swift; sourceTree = "<group>"; };
+		E9B12F4222139D2100C76D93 /* MyPhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhotoDetailViewController.swift; sourceTree = "<group>"; };
+		E9B12F462213A86600C76D93 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E9B9EEBC220CA84500410A4C /* AppUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserController.swift; sourceTree = "<group>"; };
+		E9B9EEBE220CB45400410A4C /* AdventureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureController.swift; sourceTree = "<group>"; };
+		E9B9EEC0220CEB7F00410A4C /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
+		E9B9EEC4220E48D500410A4C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E9B9EEC6220F466500410A4C /* AdventureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureDetailViewController.swift; sourceTree = "<group>"; };
+		E9B9EEC8220F46EF00410A4C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +95,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B12F472213A86600C76D93 /* MapKit.framework in Frameworks */,
+				F9F811FF93F64609792CE092 /* Pods_Xplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52934AA079294E5C588F344A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				60D174C90CCC230D9DF8F13D /* Pods-Xplore.debug.xcconfig */,
+				AA6C3EE04F3A1EFAA274119E /* Pods-Xplore.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B1C3ED54F999204B6A24B1A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9B12F462213A86600C76D93 /* MapKit.framework */,
+				4078065CB717FB16C0E254E8 /* Pods_Xplore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E9606066220A11C4009E6801 = {
 			isa = PBXGroup;
 			children = (
 				E9606071220A11C4009E6801 /* Xplore */,
 				E9606070220A11C4009E6801 /* Products */,
+				52934AA079294E5C588F344A /* Pods */,
+				B1C3ED54F999204B6A24B1A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +142,100 @@
 		E9606071220A11C4009E6801 /* Xplore */ = {
 			isa = PBXGroup;
 			children = (
+				E96060A2220A5C52009E6801 /* Firebase */,
+				E960608D220A2BCB009E6801 /* Models */,
+				E9606091220A2C24009E6801 /* Model Controllers */,
+				E9606092220A2C2F009E6801 /* View Controllers */,
+				E9606095220A2CBB009E6801 /* Views */,
+				E960608A220A2B94009E6801 /* UI */,
+				E9606089220A2B76009E6801 /* Resources */,
+			);
+			path = Xplore;
+			sourceTree = "<group>";
+		};
+		E9606089220A2B76009E6801 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E9B12F342212349600C76D93 /* UIViewControllerExtension.swift */,
 				E9606072220A11C4009E6801 /* AppDelegate.swift */,
-				E9606074220A11C4009E6801 /* ViewController.swift */,
-				E9606076220A11C4009E6801 /* Main.storyboard */,
 				E960607C220A11C9009E6801 /* Assets.xcassets */,
 				E960607E220A11C9009E6801 /* LaunchScreen.storyboard */,
 				E9606081220A11C9009E6801 /* Info.plist */,
+				E9606087220A1585009E6801 /* GoogleService-Info.plist */,
 				E9606079220A11C4009E6801 /* Xplore.xcdatamodeld */,
+				E9B12F38221239A800C76D93 /* StyleGuide.swift */,
 			);
-			path = Xplore;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E960608A220A2B94009E6801 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E9606076220A11C4009E6801 /* Main.storyboard */,
+				E9606093220A2CA0009E6801 /* SignInFlow.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E960608D220A2BCB009E6801 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E96060A0220A5989009E6801 /* FirestoreFetchable.swift */,
+				E96060A5220A667D009E6801 /* AppUser.swift */,
+				E96060A7220B872E009E6801 /* FirebaseStorable.swift */,
+				E96060A9220B9BED009E6801 /* Adventure.swift */,
+				E96060AB220BA539009E6801 /* Photo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9606091220A2C24009E6801 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9B9EEBC220CA84500410A4C /* AppUserController.swift */,
+				E9B9EEBE220CB45400410A4C /* AdventureController.swift */,
+				E9B9EEC0220CEB7F00410A4C /* PhotoController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		E9606092220A2C2F009E6801 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9606096220A2E58009E6801 /* LandingPageViewController.swift */,
+				E9606098220A2E8A009E6801 /* IntroductionViewController.swift */,
+				E960609A220A2EB5009E6801 /* LoginPageViewController.swift */,
+				E960609C220A2ECA009E6801 /* ForgotPasswordViewController.swift */,
+				E960609E220A2EDE009E6801 /* SignUpViewController.swift */,
+				E9B9EEC4220E48D500410A4C /* HomeViewController.swift */,
+				E9B12F302212016100C76D93 /* MyAdventureViewController.swift */,
+				E9B9EEC6220F466500410A4C /* AdventureDetailViewController.swift */,
+				E9B9EEC8220F46EF00410A4C /* SettingsViewController.swift */,
+				E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */,
+				E9B12F3C22137B6900C76D93 /* MapViewController.swift */,
+				E9B12F3E22137BA500C76D93 /* MapAndListViewController.swift */,
+				E9B12F4022137BBC00C76D93 /* AdventureListTableViewController.swift */,
+				E9B12F4222139D2100C76D93 /* MyPhotoDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E9606095220A2CBB009E6801 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */,
+				E9B12F36221235D200C76D93 /* PhotoCollectionViewCell.swift */,
+				E9B12F3A22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E96060A2220A5C52009E6801 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E96060A3220A5C68009E6801 /* FirebaseManager.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9606084220A11C9009E6801 /* Build configuration list for PBXNativeTarget "Xplore" */;
 			buildPhases = (
+				36F4941E03E17ADBE1CB8C17 /* [CP] Check Pods Manifest.lock */,
 				E960606B220A11C4009E6801 /* Sources */,
 				E960606C220A11C4009E6801 /* Frameworks */,
 				E960606D220A11C4009E6801 /* Resources */,
+				1E8987B5BEBFAB31AC3A13DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -99,6 +272,11 @@
 				TargetAttributes = {
 					E960606E220A11C4009E6801 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -125,21 +303,111 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9606094220A2CA0009E6801 /* SignInFlow.storyboard in Resources */,
 				E9606080220A11C9009E6801 /* LaunchScreen.storyboard in Resources */,
 				E960607D220A11C9009E6801 /* Assets.xcassets in Resources */,
+				E9606088220A1586009E6801 /* GoogleService-Info.plist in Resources */,
 				E9606078220A11C4009E6801 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E8987B5BEBFAB31AC3A13DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Xplore/Pods-Xplore-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Xplore/Pods-Xplore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36F4941E03E17ADBE1CB8C17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Xplore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E960606B220A11C4009E6801 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9606075220A11C4009E6801 /* ViewController.swift in Sources */,
+				E9606099220A2E8A009E6801 /* IntroductionViewController.swift in Sources */,
+				E9B12F39221239A800C76D93 /* StyleGuide.swift in Sources */,
+				E9B12F312212016100C76D93 /* MyAdventureViewController.swift in Sources */,
+				E96060A8220B872E009E6801 /* FirebaseStorable.swift in Sources */,
+				E9B12F2F2211FC7200C76D93 /* MyAdventuresTableViewCell.swift in Sources */,
+				E9B9EEC7220F466500410A4C /* AdventureDetailViewController.swift in Sources */,
+				E9B12F4322139D2200C76D93 /* MyPhotoDetailViewController.swift in Sources */,
+				E9B12F3B22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift in Sources */,
+				E9B9EEBD220CA84500410A4C /* AppUserController.swift in Sources */,
+				E9B9EEC5220E48D500410A4C /* HomeViewController.swift in Sources */,
+				E9B9EEC9220F46EF00410A4C /* SettingsViewController.swift in Sources */,
+				E9B12F4122137BBC00C76D93 /* AdventureListTableViewController.swift in Sources */,
+				E960609F220A2EDE009E6801 /* SignUpViewController.swift in Sources */,
 				E9606073220A11C4009E6801 /* AppDelegate.swift in Sources */,
+				E96060AA220B9BED009E6801 /* Adventure.swift in Sources */,
+				E9B12F3F22137BA500C76D93 /* MapAndListViewController.swift in Sources */,
+				E96060A4220A5C68009E6801 /* FirebaseManager.swift in Sources */,
+				E9B9EEBF220CB45400410A4C /* AdventureController.swift in Sources */,
+				E9B12F2D2211F9C100C76D93 /* CreateAdventureViewController.swift in Sources */,
+				E960609D220A2ECA009E6801 /* ForgotPasswordViewController.swift in Sources */,
+				E96060AC220BA539009E6801 /* Photo.swift in Sources */,
+				E96060A1220A5989009E6801 /* FirestoreFetchable.swift in Sources */,
+				E9B12F37221235D200C76D93 /* PhotoCollectionViewCell.swift in Sources */,
+				E96060A6220A667D009E6801 /* AppUser.swift in Sources */,
+				E9606097220A2E58009E6801 /* LandingPageViewController.swift in Sources */,
+				E9B12F3D22137B6900C76D93 /* MapViewController.swift in Sources */,
+				E9B12F352212349600C76D93 /* UIViewControllerExtension.swift in Sources */,
+				E960609B220A2EB5009E6801 /* LoginPageViewController.swift in Sources */,
+				E9B9EEC1220CEB7F00410A4C /* PhotoController.swift in Sources */,
 				E960607B220A11C4009E6801 /* Xplore.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,11 +552,12 @@
 		};
 		E9606085220A11C9009E6801 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60D174C90CCC230D9DF8F13D /* Pods-Xplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2446Y3VTK6;
-				INFOPLIST_FILE = Xplore/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Xplore/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,11 +571,12 @@
 		};
 		E9606086220A11C9009E6801 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA6C3EE04F3A1EFAA274119E /* Pods-Xplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2446Y3VTK6;
-				INFOPLIST_FILE = Xplore/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Xplore/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

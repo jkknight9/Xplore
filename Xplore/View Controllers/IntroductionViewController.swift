@@ -10,13 +10,36 @@ import UIKit
 
 class IntroductionViewController: UIViewController {
 
+    @IBOutlet weak var displayView: UIView!
+    @IBOutlet weak var xploreButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        displayView.layer.shadowOpacity = 0.8
+        displayView.layer.shadowOffset = CGSize(width: 0, height: 10.0)
+        xploreButton.layer.cornerRadius = xploreButton.frame.height / 2
+    }
 
+    @IBAction func xploreButtonTapped(_ sender: UIButton) {
+        segueOverToLoginInPage()
+    }
+    
+    func segueOverToLoginInPage() {
+        self.performSegue(withIdentifier: "toLoginPage", sender: self)
+    }
+    
+    func animate() {
+        UIView.animate(withDuration: 0.2, delay: 0.3, options: [.curveLinear], animations: {
+            self.displayView.alpha = 0
+        }, completion: nil)
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

@@ -10,21 +10,37 @@ import UIKit
 
 class ForgotPasswordViewController: UIViewController {
 
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailLinkButton: UIButton!
+    @IBOutlet weak var backToLoginButton: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
+        emailTextField.clipsToBounds = true
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
+        emailLinkButton.layer.cornerRadius = emailLinkButton.frame.height / 2
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func emailLinkButtonTapped(_ sender: Any) {
     }
-    */
+    
+    @IBAction func backToLoginButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
 
+extension ForgotPasswordViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            textField.resignFirstResponder()
+            self.emailLinkButtonTapped(emailLinkButton)
+        }
+        return true
+    }
 }
