@@ -19,7 +19,6 @@ class MyAdventureViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var photos: [UIImage]?
     
-
     // Landing Pad
     var adventureID: String?
     var adventure: Adventure? {

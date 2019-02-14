@@ -22,6 +22,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow Camera For New Profile Picture</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to hunt you down and watch you while you sleep (:</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow Access to Photo Library to Upload Photos</string>
 	<key>UILaunchStoryboardName</key>
@@ -35,8 +37,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -45,7 +45,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use your location to hunt you down and watch you while you sleep (:</string>
 </dict>
 </plist>

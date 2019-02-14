@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import CoreLocation
 
 class CreateAdventureViewController: UIViewController {

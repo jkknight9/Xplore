@@ -47,7 +47,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let currentUser = currentUser else { return}
         FirebaseManager.fetchFireStoreWithFieldAndCriteria(for: "creatorID", criteria: currentUser.uuid, inArray: false) { (adventures: [Adventure]?) in
             if let adventures = adventures {
-                self.adventures = adventures
+                AdventureController.shared.adventures = adventures
                 DispatchQueue.main.async {
                     self.adventureTableView.reloadData()                    
                 }
@@ -80,15 +80,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let adventures = adventures else {return 0}
-        return adventures.count
+//        guard let adventures = adventures else {return 0}
+        return AdventureController.shared.adventures.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let adventureCell = tableView.dequeueReusableCell(withIdentifier: "adventureCell", for: indexPath) as! MyAdventuresTableViewCell
-        let adventure = adventures?[indexPath.row]
-        adventureCell.adventureName.text = adventure?.adventureName
-        adventureCell.adventureDetails.text = adventure?.details
+        let adventure = AdventureController.shared.adventures[indexPath.row]
+        adventureCell.adventureName.text = adventure.adventureName
+        adventureCell.adventureDetails.text = adventure.details
         adventureCell.layer.borderWidth = 1
         adventureCell.layer.borderColor = UIColor.xploreGreen.cgColor
         adventureCell.layer.cornerRadius = 10
@@ -128,7 +128,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if segue.identifier == "toMyAdventureDetail" {
             if let destinationVC = segue.destination as? MyAdventureViewController {
                 if let indexPath = adventureTableView.indexPathForSelectedRow {
-                    let adventure = adventures?[indexPath.row]
+                    let adventure = AdventureController.shared.adventures[indexPath.row]
                     destinationVC.adventure = adventure
                 }
             }

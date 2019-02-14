@@ -856,13 +856,14 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GFt-cN-otH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="636"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0cg-Sp-sEm" id="995-HR-Pyu"/>
+                                </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gua-68-bT8">
-                                <rect key="frame" x="345" y="566" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6oA-sj-bfu"/>
-                                    <constraint firstAttribute="width" constant="30" id="DJH-4y-6sa"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gua-68-bT8">
+                                <rect key="frame" x="329" y="572" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button" image="arrow"/>
                                 <connections>
                                     <action selector="locateUserButtonTapped:" destination="0cg-Sp-sEm" eventType="touchUpInside" id="Cue-ux-lN4"/>
@@ -871,14 +872,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Gua-68-bT8" firstAttribute="top" secondItem="FsW-Lx-Vgw" secondAttribute="top" constant="522" id="BCZ-Ld-huh"/>
                             <constraint firstItem="GFt-cN-otH" firstAttribute="leading" secondItem="7pY-Jr-8ZN" secondAttribute="leading" id="KGJ-be-vu4"/>
                             <constraint firstAttribute="trailing" secondItem="GFt-cN-otH" secondAttribute="trailing" id="QDz-XU-od9"/>
                             <constraint firstAttribute="bottom" secondItem="GFt-cN-otH" secondAttribute="bottom" id="Qqa-mU-BKf"/>
-                            <constraint firstItem="Gua-68-bT8" firstAttribute="leading" secondItem="FsW-Lx-Vgw" secondAttribute="leading" constant="345" id="Yuw-wp-e40"/>
-                            <constraint firstItem="FsW-Lx-Vgw" firstAttribute="bottom" secondItem="Gua-68-bT8" secondAttribute="bottom" constant="6" id="iIs-v0-RmK"/>
                             <constraint firstItem="GFt-cN-otH" firstAttribute="top" secondItem="7pY-Jr-8ZN" secondAttribute="top" id="ntz-nq-cwv"/>
-                            <constraint firstItem="Gua-68-bT8" firstAttribute="trailing" secondItem="GFt-cN-otH" secondAttribute="trailing" id="qKM-ki-uCj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FsW-Lx-Vgw"/>
                     </view>
