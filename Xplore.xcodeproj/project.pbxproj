@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E912035F221771C8006C4F16 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */; };
 		E9606073220A11C4009E6801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606072220A11C4009E6801 /* AppDelegate.swift */; };
 		E9606078220A11C4009E6801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9606076220A11C4009E6801 /* Main.storyboard */; };
 		E960607B220A11C4009E6801 /* Xplore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9606079220A11C4009E6801 /* Xplore.xcdatamodeld */; };
@@ -25,6 +26,8 @@
 		E96060A8220B872E009E6801 /* FirebaseStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060A7220B872E009E6801 /* FirebaseStorable.swift */; };
 		E96060AA220B9BED009E6801 /* Adventure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060A9220B9BED009E6801 /* Adventure.swift */; };
 		E96060AC220BA539009E6801 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060AB220BA539009E6801 /* Photo.swift */; };
+		E96D2F322215E7450031DF9F /* AdventureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D2F312215E7450031DF9F /* AdventureTableViewCell.swift */; };
+		E96D2F34221730560031DF9F /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D2F33221730550031DF9F /* CustomPointAnnotation.swift */; };
 		E9B12F2D2211F9C100C76D93 /* CreateAdventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */; };
 		E9B12F2F2211FC7200C76D93 /* MyAdventuresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */; };
 		E9B12F312212016100C76D93 /* MyAdventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F302212016100C76D93 /* MyAdventureViewController.swift */; };
@@ -50,6 +53,8 @@
 		4078065CB717FB16C0E254E8 /* Pods_Xplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60D174C90CCC230D9DF8F13D /* Pods-Xplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xplore/Pods-Xplore.debug.xcconfig"; sourceTree = "<group>"; };
 		AA6C3EE04F3A1EFAA274119E /* Pods-Xplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xplore/Pods-Xplore.release.xcconfig"; sourceTree = "<group>"; };
+		E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		E912037E221CDD53006C4F16 /* Xplore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Xplore.entitlements; sourceTree = "<group>"; };
 		E960606F220A11C4009E6801 /* Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9606072220A11C4009E6801 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9606077220A11C4009E6801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +75,8 @@
 		E96060A7220B872E009E6801 /* FirebaseStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorable.swift; sourceTree = "<group>"; };
 		E96060A9220B9BED009E6801 /* Adventure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adventure.swift; sourceTree = "<group>"; };
 		E96060AB220BA539009E6801 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		E96D2F312215E7450031DF9F /* AdventureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureTableViewCell.swift; sourceTree = "<group>"; };
+		E96D2F33221730550031DF9F /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomPointAnnotation.swift; path = Xplore/Views/CustomPointAnnotation.swift; sourceTree = SOURCE_ROOT; };
 		E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdventureViewController.swift; sourceTree = "<group>"; };
 		E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdventuresTableViewCell.swift; sourceTree = "<group>"; };
 		E9B12F302212016100C76D93 /* MyAdventureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdventureViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +149,7 @@
 		E9606071220A11C4009E6801 /* Xplore */ = {
 			isa = PBXGroup;
 			children = (
+				E912037E221CDD53006C4F16 /* Xplore.entitlements */,
 				E96060A2220A5C52009E6801 /* Firebase */,
 				E960608D220A2BCB009E6801 /* Models */,
 				E9606091220A2C24009E6801 /* Model Controllers */,
@@ -202,20 +210,21 @@
 		E9606092220A2C2F009E6801 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E9606096220A2E58009E6801 /* LandingPageViewController.swift */,
-				E9606098220A2E8A009E6801 /* IntroductionViewController.swift */,
-				E960609A220A2EB5009E6801 /* LoginPageViewController.swift */,
-				E960609C220A2ECA009E6801 /* ForgotPasswordViewController.swift */,
-				E960609E220A2EDE009E6801 /* SignUpViewController.swift */,
-				E9B9EEC4220E48D500410A4C /* HomeViewController.swift */,
-				E9B12F302212016100C76D93 /* MyAdventureViewController.swift */,
 				E9B9EEC6220F466500410A4C /* AdventureDetailViewController.swift */,
-				E9B9EEC8220F46EF00410A4C /* SettingsViewController.swift */,
-				E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */,
-				E9B12F3C22137B6900C76D93 /* MapViewController.swift */,
-				E9B12F3E22137BA500C76D93 /* MapAndListViewController.swift */,
 				E9B12F4022137BBC00C76D93 /* AdventureListTableViewController.swift */,
+				E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */,
+				E960609C220A2ECA009E6801 /* ForgotPasswordViewController.swift */,
+				E9B9EEC4220E48D500410A4C /* HomeViewController.swift */,
+				E9606098220A2E8A009E6801 /* IntroductionViewController.swift */,
+				E9606096220A2E58009E6801 /* LandingPageViewController.swift */,
+				E960609A220A2EB5009E6801 /* LoginPageViewController.swift */,
+				E9B12F3E22137BA500C76D93 /* MapAndListViewController.swift */,
+				E9B12F3C22137B6900C76D93 /* MapViewController.swift */,
+				E9B12F302212016100C76D93 /* MyAdventureViewController.swift */,
 				E9B12F4222139D2100C76D93 /* MyPhotoDetailViewController.swift */,
+				E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */,
+				E9B9EEC8220F46EF00410A4C /* SettingsViewController.swift */,
+				E960609E220A2EDE009E6801 /* SignUpViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -226,6 +235,8 @@
 				E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */,
 				E9B12F36221235D200C76D93 /* PhotoCollectionViewCell.swift */,
 				E9B12F3A22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift */,
+				E96D2F312215E7450031DF9F /* AdventureTableViewCell.swift */,
+				E96D2F33221730550031DF9F /* CustomPointAnnotation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,6 +285,9 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -384,6 +398,7 @@
 				E9B12F312212016100C76D93 /* MyAdventureViewController.swift in Sources */,
 				E96060A8220B872E009E6801 /* FirebaseStorable.swift in Sources */,
 				E9B12F2F2211FC7200C76D93 /* MyAdventuresTableViewCell.swift in Sources */,
+				E96D2F322215E7450031DF9F /* AdventureTableViewCell.swift in Sources */,
 				E9B9EEC7220F466500410A4C /* AdventureDetailViewController.swift in Sources */,
 				E9B12F4322139D2200C76D93 /* MyPhotoDetailViewController.swift in Sources */,
 				E9B12F3B22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift in Sources */,
@@ -400,10 +415,12 @@
 				E9B12F2D2211F9C100C76D93 /* CreateAdventureViewController.swift in Sources */,
 				E960609D220A2ECA009E6801 /* ForgotPasswordViewController.swift in Sources */,
 				E96060AC220BA539009E6801 /* Photo.swift in Sources */,
+				E96D2F34221730560031DF9F /* CustomPointAnnotation.swift in Sources */,
 				E96060A1220A5989009E6801 /* FirestoreFetchable.swift in Sources */,
 				E9B12F37221235D200C76D93 /* PhotoCollectionViewCell.swift in Sources */,
 				E96060A6220A667D009E6801 /* AppUser.swift in Sources */,
 				E9606097220A2E58009E6801 /* LandingPageViewController.swift in Sources */,
+				E912035F221771C8006C4F16 /* PhotoDetailViewController.swift in Sources */,
 				E9B12F3D22137B6900C76D93 /* MapViewController.swift in Sources */,
 				E9B12F352212349600C76D93 /* UIViewControllerExtension.swift in Sources */,
 				E960609B220A2EB5009E6801 /* LoginPageViewController.swift in Sources */,
@@ -555,6 +572,8 @@
 			baseConfigurationReference = 60D174C90CCC230D9DF8F13D /* Pods-Xplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Xplore/Xplore.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = "$(SRCROOT)/Xplore/Resources/Info.plist";
@@ -564,8 +583,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackknight.Xplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -574,6 +594,8 @@
 			baseConfigurationReference = AA6C3EE04F3A1EFAA274119E /* Pods-Xplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Xplore/Xplore.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = "$(SRCROOT)/Xplore/Resources/Info.plist";
@@ -583,8 +605,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackknight.Xplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

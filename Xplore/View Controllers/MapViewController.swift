@@ -10,35 +10,38 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-
+    
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locateUserButton: UIButton!
+    @IBOutlet weak var locateButtonVIew: UIView!
     
     var locationManager = CLLocationManager()
+    static let allAdventuresReceived = Notification.Name(rawValue: "allAdventuresReceived")
+    var wasZoomed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
-        locateUserButton.layer.cornerRadius = locateUserButton.frame.height / 4
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        AdventureController.shared.adventures.forEach { (adventure) in
-            
-            DispatchQueue.main.async {
-                guard let adventureLocation = adventure.location else {return}
-                self.addPinFor(location: adventureLocation, name: adventure.adventureName, details: adventure.details)
+        locateButtonVIew.layer.cornerRadius = locateButtonVIew.frame.height / 2
+        mapView.delegate = self
+        locateButtonVIew.layer.shadowOffset = CGSize(width: 5, height: 5)
+        locateButtonVIew.layer.shadowOpacity = 0.5
+        AdventureController.shared.fetchAllAdventures { (success) in
+            if success {
+                NotificationCenter.default.post(name: MapViewController.allAdventuresReceived, object: nil)
+                DispatchQueue.main.async {
+                    AdventureController.shared.allAdventures.forEach({ (adventure) in
+                        self.addPinFor(adventure)
+                    })
+                }
             }
         }
     }
     
-    func addPinFor(location: CLLocationCoordinate2D, name: String, details: String) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        annotation.title = name
-        annotation.subtitle = details
+    func addPinFor(_ adventure: Adventure) {
+        let annotation = CustomPointAnnotation()
+        annotation.adventure = adventure
         mapView.addAnnotation(annotation)
     }
     
@@ -55,23 +58,11 @@ class MapViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
             
         }
-    }
-    
-    
+    } 
     
     @IBAction func locateUserButtonTapped(_ sender: Any) {
         self.mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -80,11 +71,33 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         let reuseId = "pin"
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKMarkerAnnotationView
-        pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-        pinView?.markerTintColor = UIColor.xploreGreen
-//        pinView?.canShowCallout = true
-//        pinView?.inputAccessoryView
-        return pinView
+        var markerView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKMarkerAnnotationView
+        markerView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+        markerView?.markerTintColor = UIColor.xploreGreen
+        let button = UIButton(type: .detailDisclosure)
+        markerView?.rightCalloutAccessoryView = button
+        markerView?.canShowCallout = true
+        return markerView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let annotation = view.annotation as! CustomPointAnnotation
+        guard let adventure = annotation.adventure else { return }
+        
+        let adventureDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "adventureDetailVC") as! AdventureDetailViewController
+        
+        adventureDetailVC.adventure = adventure
+        self.navigationController?.pushViewController(adventureDetailVC, animated: true)
+    
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        if !wasZoomed {
+            let coordinateSpan = MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009)
+            let coordinateRegion = MKCoordinateRegion(center: userLocation.coordinate, span: coordinateSpan)
+            mapView.setRegion(coordinateRegion, animated: true)
+            wasZoomed = true
+        }
     }
 }
+

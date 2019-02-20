@@ -46,20 +46,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let username = usernameTextField.text,
         !username.isEmpty,
         let password = passwordTextField.text,
-            !password.isEmpty else { presentRequiredFieldAlert() ; return}
+            !password.isEmpty, password.count >= 6 else { presentRequiredFieldAlert() ; return}
         
         AppUserController.shared.signUpUser(name: name, emailAddress: email, username: username, password: password) { (success, error) in
             if let error = error {
                 self.presentSignUpErrorAlert(error: error)
             } else {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "signupSuccess", sender: self)
+                }
                 print("Success signing up")
             }
         }
     }
-    func signUpSuccess() {
-        self.performSegue(withIdentifier: "signupSuccess", sender: self)
-    }
-    
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

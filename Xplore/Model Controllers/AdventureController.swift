@@ -18,9 +18,9 @@ class AdventureController {
     private init(){}
     
     var adventures: [Adventure] = []
+    var allAdventures: [Adventure] = []
     
     //   MARK: - CRUD Functions
-    
     
     //Create an adventure
     func createAnAdventure(adventureName: String, details: String, location: CLLocationCoordinate2D?, creatorID: String, photos: [UIImage] = [], completion: @escaping (Adventure?) -> Void) {
@@ -35,6 +35,7 @@ class AdventureController {
             } else {
                 completion(newAdventure)
                 self.adventures.append(newAdventure)
+                self.allAdventures.append(newAdventure)
             }
         }
         PhotoController.shared.uploadPhotos(photos: photos, for: newAdventure) {
@@ -61,13 +62,14 @@ class AdventureController {
     
     // Delete an Adventure
     func deleteAnAdventure(adventure: Adventure, completion: @escaping (Bool) -> Void) {
-        
         FirebaseManager.deleteData(object: adventure) { (success) in
             if !success {
                 print("There was an error deleting an adventure. \(adventure)")
                 completion(false)
                 return
             } else {
+                guard let index = AdventureController.shared.adventures.firstIndex(of: adventure) else {completion(false) ; return}
+                AdventureController.shared.adventures.remove(at: index)
                 completion(true)
             }
         }
@@ -99,7 +101,11 @@ class AdventureController {
         }
     }
     
-    func fetchAdventures() {
-        
+    func fetchAllAdventures(completion: @escaping (Bool) -> Void) {
+        FirebaseManager.fetchAllinACollectionFromFirestore { (allAventures: [Adventure]?) in
+            guard let allAdventures = allAventures else { completion(false) ; return }
+            self.allAdventures = allAdventures
+            completion(true)
+        }
     }
 }

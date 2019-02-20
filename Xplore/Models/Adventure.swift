@@ -10,7 +10,12 @@ import UIKit
 import CoreLocation
 import Firebase
 
-class Adventure: FirestoreFetchable {
+class Adventure: FirestoreFetchable, Equatable {
+    
+    static func == (lhs: Adventure, rhs: Adventure) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
+    
     
     static let CollectionName: String = "adventures"
     
@@ -33,7 +38,6 @@ class Adventure: FirestoreFetchable {
     
     required init?(with dictionary: [String : Any], id: String) {
         guard let adventureName = dictionary["adventureName"] as? String,
-            let geoPoint = dictionary["location"] as? GeoPoint,
             let createrID = dictionary["creatorID"] as? String,
             let details = dictionary["details"] as? String,
             let photosIDs = dictionary["photoIDs"] as? [String]
@@ -41,11 +45,14 @@ class Adventure: FirestoreFetchable {
         
         self.uuid = id
         self.adventureName = adventureName
-        self.location = CLLocationCoordinate2D(geoPoint: geoPoint)
         self.createrID = createrID
         self.details = details
         self.photoIDs = photosIDs
+        
+        if let geoPoint = dictionary["location"] as? GeoPoint {
+            self.location = CLLocationCoordinate2D(geoPoint: geoPoint)
         }
+    }
 }
 
 extension Adventure {

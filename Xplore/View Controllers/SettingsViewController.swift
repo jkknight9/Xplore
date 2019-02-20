@@ -88,8 +88,8 @@ class SettingsViewController: UIViewController {
         changeDisplayNameAlert.addTextField { (textField) in
             textField.placeholder = "New Name Here"
         }
+        changeDisplayNameAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         changeDisplayNameAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (okayAction) in
-            changeDisplayNameAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             guard let newNameText = changeDisplayNameAlert.textFields?.first?.text else {return}
             self.nameLabel.text = newNameText
             self.currentUser?.name = newNameText
@@ -128,6 +128,7 @@ class SettingsViewController: UIViewController {
         FirebaseManager.deleteLoggedInUser { (success) in
             if success {
                 print("User Deleted❌")
+                self.navigationController?.popToRootViewController(animated: true)
             } else {
                 print("Error deleting user.")
             }

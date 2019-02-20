@@ -22,7 +22,7 @@ class Photo: FirestoreFetchable, FirebaseStorage, Equatable {
     var imageURL: String?
     var data: Data {
         guard let image = self.image,
-        let data = image.jpegData(compressionQuality: 0.25)
+        let data = image.jpegData(compressionQuality: 0.30)
             else { return Data() }
         return data
     }

@@ -17,17 +17,17 @@ class MapAndListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        listContainerView.isHidden = true
     }
     
     @IBAction func mapAndListSegmentTapped(_ sender: Any) {
         switch mapAndListSegmentedControl.selectedSegmentIndex {
         case 0:
-            mapContainerView.isHidden = true
-            listContainerView.isHidden = false
-        case 1:
             mapContainerView.isHidden = false
             listContainerView.isHidden = true
+        case 1:
+            mapContainerView.isHidden = true
+            listContainerView.isHidden = false
         default:
             break
         }

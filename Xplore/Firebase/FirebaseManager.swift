@@ -120,7 +120,7 @@ class FirebaseManager {
                     print("User deleted")
                 }
             }
-            let photoCollectionReference = Firestore.firestore().collection("adventurePhotos")
+//            let photoCollectionReference = Firestore.firestore().collection("adventurePhotos")
             
 //            fetchFireStoreWithFieldAndCriteria(for: "creatorID", criteria: userID, inArray: false) { (photos: [Photo]?) in
 //                if let photos = photos {
@@ -128,7 +128,15 @@ class FirebaseManager {
 //                        deletePhotoFromFireBase(uuid: photo.uuid, c)
 //                    }
 //                }
-//            }
+            //            }
+            user.delete { (error) in
+                 if let error = error {
+                    print("💩There was an error in \(#function) ; \(error) ; \(error.localizedDescription) 💩")
+                } else {
+                    print("Account was deleted for sure!!!")
+                    completion(true)
+                }
+            }
         }
     }
     
@@ -174,9 +182,10 @@ class FirebaseManager {
             guard let documents = querySnapshot?.documents else { completion(nil) ; return }
             let dictionaries = documents.compactMap{$0.data() }
             var returnValue: [T] = []
+        
             for dictionary in dictionaries {
                 guard let uuid = dictionary["uuid"] as? String,
-                    let object = T(with: dictionary, id: uuid) else { completion(nil) ; return}
+                    let object = T(with: dictionary, id: uuid) else { continue }
                 returnValue.append(object)
             }
             completion(returnValue)

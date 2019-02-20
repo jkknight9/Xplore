@@ -61,6 +61,29 @@ class PhotoController {
         }
     }
     
+    func add(photo: UIImage, to adventure: Adventure, completion: @escaping () -> Void) {
+        let photoNumber = adventure.photoIDs.count + 1
+        let newPhotoID = "photo\(photoNumber)"
+        adventure.photoIDs.append(newPhotoID)
+        
+        let baseStorageRef = Storage.storage().reference(withPath: "adventurePhotos/\(adventure.uuid)")
+        guard let photoID = adventure.photoIDs.last else { completion() ; return }
+        let storageRef = baseStorageRef.child(photoID)
+        if let data = photo.jpegData(compressionQuality: 0.5) {
+            storageRef.putData(data, metadata: nil) { (nil, error) in
+                if let error = error {
+                    print("💩There was an error in \(#function) ; \(error) ; \(error.localizedDescription) 💩")
+                }
+                FirebaseManager.updateData(object: adventure, dictionary: adventure.dictionary, completion: { (error) in
+                     if let error = error {
+                        print("💩There was an error in \(#function) ; \(error) ; \(error.localizedDescription) 💩")
+                    }
+                    completion()
+                })
+            }
+        }
+    }
+    
     // fetch image from firebase
     func fetchImageFromFirebase(for photo: Photo, completion: @escaping (UIImage?) -> Void) {
         if let url = photo.imageURL {

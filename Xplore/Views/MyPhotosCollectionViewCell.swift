@@ -12,6 +12,10 @@ class MyPhotosCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var myPostedImages: UIImageView!
     
-    var photo: UIImage?
+    var photo: UIImage? {
+        didSet {
+            myPostedImages.image = photo
+        }
+    }
     
 }

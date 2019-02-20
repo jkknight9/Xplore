@@ -23,7 +23,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Allow Camera For New Profile Picture</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use your location to hunt you down and watch you while you sleep (:</string>
+	<string>Please allow location to show others new adventures</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow Access to Photo Library to Upload Photos</string>
 	<key>UILaunchStoryboardName</key>

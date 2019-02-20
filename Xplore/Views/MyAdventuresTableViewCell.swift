@@ -14,6 +14,7 @@ class MyAdventuresTableViewCell: UITableViewCell {
     @IBOutlet weak var adventureDetails: UILabel!
     
    // Landing Pad
+    var photo: Photo?
     var adventure: Adventure? {
         didSet{
             updateViews()

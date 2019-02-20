@@ -31,7 +31,6 @@ class LandingPageViewController: UIViewController {
 //            if segue.identifier == "loggedInUser" {
 //
 //            }
-//
 //        }
 //    }
     }

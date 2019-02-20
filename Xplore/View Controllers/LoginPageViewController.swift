@@ -37,7 +37,7 @@ class LoginPageViewController: UIViewController {
         guard let email = emailTextField.text,
         !email.isEmpty,
         let password = passwordTextField.text,
-            !password.isEmpty else {return}
+            !password.isEmpty, password.count >= 6 else {return}
         
         AppUserController.shared.logInUser(emailAddress: email, password: password) { (success, error) in
             if let error = error {

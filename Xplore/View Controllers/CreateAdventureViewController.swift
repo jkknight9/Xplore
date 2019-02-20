@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class CreateAdventureViewController: UIViewController {
+class CreateAdventureViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var adventureNameTextField: UITextField!
     @IBOutlet weak var detailsTextView: UITextView!
@@ -23,23 +23,40 @@ class CreateAdventureViewController: UIViewController {
     var photos: [UIImage] = []
     var currentLocation: CLLocation?
     var useCurrentLocation: Bool = false
+    var placeholderLabel : UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         photosCollectionView.dataSource = self
         adventureNameTextField.layer.borderWidth = 2
         adventureNameTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
-        adventureNameTextField.layer.cornerRadius = adventureNameTextField.frame.height / 2
+        adventureNameTextField.layer.cornerRadius = 5
+        detailsTextView.layer.cornerRadius = 5
+        photosCollectionView.layer.cornerRadius = 5
         uploadPhotosButton.layer.cornerRadius = adventureNameTextField.frame.height / 2
         photosCollectionView.layer.borderWidth = 2
         photosCollectionView.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
         detailsTextView.layer.borderWidth = 2
         detailsTextView.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
         currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height / 2
+        detailsTextView.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Enter Details..."
+        placeholderLabel.sizeToFit()
+        detailsTextView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (detailsTextView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !detailsTextView.text.isEmpty
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !textView.text.isEmpty
+    }
+
     private func toggleCurrentLocationEnabledButton() {
         currentLocationButton.backgroundColor = useCurrentLocation ? .xploreGreen : .lightGray
+        let buttonText = useCurrentLocation ? "Using My Location" : "Not Using My location"
+        currentLocationButton.setTitle(buttonText, for: .normal)
     }
     
     private func createAdventureForData() {

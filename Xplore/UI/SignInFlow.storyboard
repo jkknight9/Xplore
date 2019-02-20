@@ -299,7 +299,6 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="singupButtonTapped:" destination="qrU-PV-hiy" eventType="touchUpInside" id="6Rk-UA-xzJ"/>
-                                                            <segue destination="xyc-hC-r9y" kind="show" identifier="signupSuccess" id="Ocz-Xt-9rM"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -342,6 +341,7 @@
                         <outlet property="passwordTextField" destination="mzP-ye-Ajn" id="6zF-Bh-wA7"/>
                         <outlet property="signupButton" destination="URU-3U-nC1" id="4A5-CZ-EUF"/>
                         <outlet property="usernameTextField" destination="ea5-2R-hsU" id="DsY-kr-x8Z"/>
+                        <segue destination="xyc-hC-r9y" kind="show" identifier="signupSuccess" id="aD6-Xj-k0B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dku-Pa-R8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -424,9 +424,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="landingPage" width="603" height="1304"/>
+        <image name="landingPage" width="611" height="1286"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ocz-Xt-9rM"/>
+        <segue reference="aD6-Xj-k0B"/>
     </inferredMetricsTieBreakers>
 </document>
