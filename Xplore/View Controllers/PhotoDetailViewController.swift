@@ -29,7 +29,6 @@ class PhotoDetailViewController: UIViewController {
     }
 
     func updateViews() {
-        photoCollectionView.reloadData()
         guard photoCollectionView.numberOfItems(inSection: 0) >= selectedPosition else {return}
         let indexPath = IndexPath(row: selectedPosition, section: 0)
         photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)

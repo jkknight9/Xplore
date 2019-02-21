@@ -19,7 +19,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var createButton: UIButton!
     
     // Source of truth
-    
     let cellSpacingHeight: CGFloat = 10
     var currentUser = AppUserController.shared.currentUser
     
@@ -39,7 +38,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //Fetch for users events from firebase, maybe store locally
     func fetchAdventures() {
-        // Create a func in AdventureController to fetch the adventures (needs a completion)
         guard let currentUser = currentUser else { return}
         FirebaseManager.fetchFireStoreWithFieldAndCriteria(for: "creatorID", criteria: currentUser.uuid, inArray: false) { (adventures: [Adventure]?) in
             if let adventures = adventures {
@@ -62,12 +60,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             })
         }
-        
     }
+    
     @IBAction func createAdventureButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "createAdventure", sender: self)
     }
-    
     
     //   MARK: - Actions
     @IBAction func mapViewOrTableView(_ sender: UISegmentedControl) {
@@ -75,7 +72,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        guard let adventures = adventures else {return 0}
         return AdventureController.shared.adventures.count
     }
     
@@ -84,6 +80,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let adventure = AdventureController.shared.adventures[indexPath.row]
         adventureCell.adventureName.text = adventure.adventureName
         adventureCell.adventureDetails.text = adventure.details
+        adventureCell.layer.shadowOpacity = 0.5
+        adventureCell.layer.shadowOffset = CGSize(width: 10, height: 10)
         
         
         adventureCell.clipsToBounds = true

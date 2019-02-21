@@ -30,7 +30,7 @@ class AdventureTableViewCell: UITableViewCell {
         DispatchQueue.main.async {
             self.adventureNameLabel.text = adventure.adventureName
             self.adventureDetailsLabel.text = adventure.details
-//            self.distanceAwayLabel.text = adventure.distanceFromUser
+            
         }
     }
 }

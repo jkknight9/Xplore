@@ -9,9 +9,11 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Photos
+import BSImagePicker
 
 class CreateAdventureViewController: UIViewController, UITextViewDelegate {
-
+    
     @IBOutlet weak var adventureNameTextField: UITextField!
     @IBOutlet weak var detailsTextView: UITextView!
     @IBOutlet weak var uploadPhotosButton: UIButton!
@@ -21,9 +23,11 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
     
     private let locationManager = CLLocationManager()
     var photos: [UIImage] = []
+    var selectedAssests = [PHAsset]()
     var currentLocation: CLLocation?
     var useCurrentLocation: Bool = false
     var placeholderLabel : UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +56,7 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
-
+    
     private func toggleCurrentLocationEnabledButton() {
         currentLocationButton.backgroundColor = useCurrentLocation ? .xploreGreen : .lightGray
         let buttonText = useCurrentLocation ? "Using My Location" : "Not Using My location"
@@ -81,6 +85,7 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
         createAdventureForData()
     }
     
+    
     @IBAction func useCoreLocationButtonTapped(_ sender: Any) {
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -94,9 +99,51 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
     
     
     @IBAction func uploadPhotosButtonTapped(_ sender: Any) {
-        presentImagePicker()
+        //        presentImagePicker()
+        let vc = BSImagePickerViewController()
+        self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) -> Void in
+            
+        }, deselect: { (asset:PHAsset) -> Void in
+            
+        }, cancel: { (assets: [PHAsset]) -> Void in
+            
+        }, finish: { (assets: [PHAsset]) -> Void in
+            
+            for i in 0..<assets.count {
+                
+                self.selectedAssests.append(assets[i])
+            }
+            self.convertAssetToImage()
+            
+        }, completion: nil)
     }
     
+    func convertAssetToImage() -> Void {
+        
+        if selectedAssests.count != 0 {
+            let manager = PHImageManager.default()
+            let options = PHImageRequestOptions()
+            var image = UIImage()
+            options.isSynchronous = true
+            
+            for i in 0..<selectedAssests.count {
+                
+                manager.requestImage(for: selectedAssests[i], targetSize: CGSize(width: 1000, height: 1000), contentMode: .aspectFill, options: options, resultHandler: {(result, info) -> Void in image = result!
+                    
+                })
+                
+                if let data = image.jpegData(compressionQuality: 0.8) {
+                    if let newImage = UIImage(data: data) {
+                        self.photos.append(newImage)
+                        
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.photosCollectionView.reloadData()
+            }
+        }
+    }
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

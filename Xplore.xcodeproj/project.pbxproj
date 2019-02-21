@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E912035F221771C8006C4F16 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */; };
+		E94F5977221DF23800845C7D /* DistanceFromUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94F5976221DF23800845C7D /* DistanceFromUser.swift */; };
 		E9606073220A11C4009E6801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606072220A11C4009E6801 /* AppDelegate.swift */; };
 		E9606078220A11C4009E6801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9606076220A11C4009E6801 /* Main.storyboard */; };
 		E960607B220A11C4009E6801 /* Xplore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9606079220A11C4009E6801 /* Xplore.xcdatamodeld */; };
@@ -55,6 +56,7 @@
 		AA6C3EE04F3A1EFAA274119E /* Pods-Xplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xplore/Pods-Xplore.release.xcconfig"; sourceTree = "<group>"; };
 		E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		E912037E221CDD53006C4F16 /* Xplore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Xplore.entitlements; sourceTree = "<group>"; };
+		E94F5976221DF23800845C7D /* DistanceFromUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceFromUser.swift; sourceTree = "<group>"; };
 		E960606F220A11C4009E6801 /* Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9606072220A11C4009E6801 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9606077220A11C4009E6801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E94F5973221DDEC800845C7D /* Helper Fuctions */ = {
+			isa = PBXGroup;
+			children = (
+				E94F5976221DF23800845C7D /* DistanceFromUser.swift */,
+			);
+			path = "Helper Fuctions";
+			sourceTree = "<group>";
+		};
 		E9606066220A11C4009E6801 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +159,7 @@
 		E9606071220A11C4009E6801 /* Xplore */ = {
 			isa = PBXGroup;
 			children = (
+				E94F5973221DDEC800845C7D /* Helper Fuctions */,
 				E912037E221CDD53006C4F16 /* Xplore.entitlements */,
 				E96060A2220A5C52009E6801 /* Firebase */,
 				E960608D220A2BCB009E6801 /* Models */,
@@ -337,6 +348,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Xplore/Pods-Xplore-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/BSImageView/BSImageView.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -350,6 +364,9 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSGridCollectionViewLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImageView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -414,6 +431,7 @@
 				E9B9EEBF220CB45400410A4C /* AdventureController.swift in Sources */,
 				E9B12F2D2211F9C100C76D93 /* CreateAdventureViewController.swift in Sources */,
 				E960609D220A2ECA009E6801 /* ForgotPasswordViewController.swift in Sources */,
+				E94F5977221DF23800845C7D /* DistanceFromUser.swift in Sources */,
 				E96060AC220BA539009E6801 /* Photo.swift in Sources */,
 				E96D2F34221730560031DF9F /* CustomPointAnnotation.swift in Sources */,
 				E96060A1220A5989009E6801 /* FirestoreFetchable.swift in Sources */,

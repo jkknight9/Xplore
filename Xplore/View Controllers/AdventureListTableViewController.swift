@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class AdventureListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
  
@@ -17,6 +18,7 @@ class AdventureListTableViewController: UIViewController, UITableViewDelegate, U
     var allAdventures: [Adventure]?
     private let refreshControl = UIRefreshControl()
     let activityIndicator = UIActivityIndicatorView()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,6 @@ class AdventureListTableViewController: UIViewController, UITableViewDelegate, U
         reloadTableView()
     }
 
-    
     @objc func reloadTableView() {
         DispatchQueue.main.async {
             self.adventureTableView.reloadData()
@@ -48,6 +49,17 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     let adventure = AdventureController.shared.allAdventures[indexPath.row]
     cell.adventureNameLabel.text = adventure.adventureName
     cell.adventureDetailsLabel.text = adventure.details
+    cell.layer.shadowOpacity = 0.5
+    cell.layer.shadowOffset = CGSize(width: 10, height: 10)
+    if let location = adventure.location {
+        let adventureLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        let distanceFromUser = (locationManager.location?.distance(from: adventureLocation) ?? 0.0) / 1609.344
+        let roundedDistance = (Double(Int(distanceFromUser * 100)))/100
+        cell.distanceAwayLabel.text = String(roundedDistance) + " miles away"
+    } else {
+        cell.distanceAwayLabel.isHidden = true
+    }
+    
     tableView.refreshControl = refreshControl
     refreshControl.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
     refreshControl.tintColor = UIColor.xploreGreen

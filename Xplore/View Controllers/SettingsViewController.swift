@@ -52,6 +52,7 @@ class SettingsViewController: UIViewController {
         usernameLabel.text = currentUser.username
         profilePicImageView.image = currentUser.profilePic
     }
+    
     //   MARK: - Actions
     @IBAction func changeProfilePicButtonTapped(_ sender: Any) {
         selectImage()

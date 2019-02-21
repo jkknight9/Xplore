@@ -75,6 +75,7 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
         let photo = photos[indexPath.row]
         cell.photo = photo
         return cell
+        
     }
     
     func updateViews() {

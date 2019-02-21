@@ -16,7 +16,6 @@ class MyAdventureViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var addPhotosButton: UIButton!
     @IBOutlet weak var photoCollectionVIew: UICollectionView!
     
-    
     var photos = [UIImage]()
     
     // Landing Pad
@@ -25,7 +24,6 @@ class MyAdventureViewController: UIViewController, UICollectionViewDelegate, UIC
         didSet {
             loadViewIfNeeded()
             updateViews()
-            
         }
     }
     
@@ -39,8 +37,6 @@ class MyAdventureViewController: UIViewController, UICollectionViewDelegate, UIC
         photoCollectionVIew.layer.borderWidth = 1
         photoCollectionVIew.layer.borderColor = UIColor.xploreGreen.cgColor
         photoCollectionVIew.layer.cornerRadius = 5
-        
-       
         
 }
     
@@ -65,17 +61,14 @@ class MyAdventureViewController: UIViewController, UICollectionViewDelegate, UIC
         let photo = photos[indexPath.row]
         cell.myPostedImages.image = photo
         return cell
+        
     }
 
-    
-    
     //   MARK: - Actions
     
     @IBAction func addPhotosToAdventure(_ sender: Any) {
         presentImagePicker()
-       
     }
-    
     
      //   MARK: - Set up
     
@@ -97,7 +90,7 @@ class MyAdventureViewController: UIViewController, UICollectionViewDelegate, UIC
             destinationVC.photos = self.photos
             
         }
-     }
+    }
 }
 
 extension MyAdventureViewController {
