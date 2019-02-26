@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MapAndListViewController: UIViewController {
+class MapAndListViewController: UIViewController, CLLocationManagerDelegate {
 
     
     @IBOutlet weak var mapAndListSegmentedControl: UISegmentedControl!
     @IBOutlet weak var mapContainerView: UIView!
     @IBOutlet weak var listContainerView: UIView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         listContainerView.isHidden = true

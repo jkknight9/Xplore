@@ -31,12 +31,6 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         profilePicImageView.layer.cornerRadius = profilePicImageView.frame.height / 2
-        changeProfilePicture.layer.cornerRadius = changeProfilePicture.frame.height / 2
-        changeUsernameButton.layer.cornerRadius = changeProfilePicture.frame.height / 2
-        changeNameButton.layer.cornerRadius = changeProfilePicture.frame.height / 2
-        logoutButton.layer.cornerRadius = changeProfilePicture.frame.height / 2
-        deleteAccountButton.layer.cornerRadius = changeProfilePicture.frame.height / 2
-        
 }
     
     override func viewWillAppear(_ animated: Bool) {

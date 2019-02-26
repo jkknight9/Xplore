@@ -11,7 +11,7 @@ import UIKit
 class ForgotPasswordViewController: UIViewController {
 
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: PaddingTextField!
     @IBOutlet weak var emailLinkButton: UIButton!
     @IBOutlet weak var backToLoginButton: UIStackView!
     

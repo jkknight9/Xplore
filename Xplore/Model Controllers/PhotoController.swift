@@ -15,6 +15,8 @@ class PhotoController {
     
     static let shared = PhotoController()
     
+    var photoPairs: [PhotoPair] = []
+    
     //Fetch photos from firebase
     func fetchPhotos(for adventure: Adventure, completion: @escaping ([UIImage]?) -> Void) {
         let dispatchGroup = DispatchGroup()
@@ -47,7 +49,7 @@ class PhotoController {
             dispatchGroup.enter()
             let photoId = adventure.photoIDs[index]
             let storageRef = baseStorageRef.child(photoId)
-            if let data = photo.jpegData(compressionQuality: 0.5) {
+            if let data = photo.jpegData(compressionQuality: 0.50) {
                 storageRef.putData(data, metadata: nil) { (nil, error) in
                     dispatchGroup.leave()
                     if let error = error {
@@ -69,7 +71,7 @@ class PhotoController {
         let baseStorageRef = Storage.storage().reference(withPath: "adventurePhotos/\(adventure.uuid)")
         guard let photoID = adventure.photoIDs.last else { completion() ; return }
         let storageRef = baseStorageRef.child(photoID)
-        if let data = photo.jpegData(compressionQuality: 0.5) {
+        if let data = photo.jpegData(compressionQuality: 0.30) {
             storageRef.putData(data, metadata: nil) { (nil, error) in
                 if let error = error {
                     print("💩There was an error in \(#function) ; \(error) ; \(error.localizedDescription) 💩")

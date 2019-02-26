@@ -315,4 +315,21 @@ class FirebaseManager {
             }
         }
     }
+    
+    // Fetch Photo from Firebase
+    static func fetchPhotoFromFirebase(relativePath: String, completion: @escaping (Bool, UIImage?) -> Void) {
+        let storage = Storage.storage()
+        let pathReference = storage.reference(withPath: relativePath)
+        
+        pathReference.getData(maxSize: 10000000) { (data, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false, nil)
+            } else {
+                guard let data = data else {return}
+                let image = UIImage(data: data)
+                completion(true, image)
+            }
+        }
+    }
 }

@@ -11,8 +11,6 @@ import MapKit
 
 class AdventureDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
-    
     @IBOutlet weak var adventureName: UILabel!
     @IBOutlet weak var navigateToMapsButton: UIButton!
     @IBOutlet weak var adventureDetailsLabel: UILabel!
@@ -53,27 +51,18 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
         MKMapItem.openMaps(with: mapItems, launchOptions: launchOptions)
     }
     
-    
-    func fetchDetails(for adventure: Adventure) {
-        PhotoController.shared.fetchPhotos(for: adventure) { (photos) in
-            DispatchQueue.main.async {
-                guard let photos = photos else {return}
-                self.photos = photos
-                self.photosCollectionView.reloadData()
-            }
-        }
-    }
-    
     // Collection View Data Source Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let photos = self.photos
-        return photos.count
+//        let photos = self.photos
+        return PhotoController.shared.photoPairs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCollectionViewCell
-        let photo = photos[indexPath.row]
-        cell.photo = photo
+        let photoPair = PhotoController.shared.photoPairs[indexPath.row]
+        cell.photoPair = photoPair
+//        let photo = photos[indexPath.row]
+//        cell.photo = photo
         return cell
         
     }
@@ -82,7 +71,20 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
         guard let adventure = adventure else {return}
         adventureName.text = adventure.adventureName
         adventureDetailsLabel.text = adventure.details
-        fetchDetails(for: adventure)
+        constructPhotoPairs()
+//        fetchDetails(for: adventure)
+    }
+    
+    func constructPhotoPairs() {
+        guard let adventure = adventure else { return }
+        var photoPairs: [PhotoPair] = []
+        for photoEndpoint in adventure.photoIDs {
+            let photoString = "adventurePhotos/\(adventure.uuid)/\(photoEndpoint)"
+            let photoPair = PhotoPair(photoUrl: photoString, image: nil)
+            photoPairs.append(photoPair)
+        }
+        PhotoController.shared.photoPairs = photoPairs
+        photosCollectionView.reloadData()
     }
     
     // MARK: - Navigation
@@ -94,7 +96,6 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
                 let indexPath = indexPaths.first,
                 let destinationVC = segue.destination as? PhotoDetailViewController else {return}
             destinationVC.selectedPosition = indexPath.row
-            destinationVC.photos = self.photos
         }
     }
 }

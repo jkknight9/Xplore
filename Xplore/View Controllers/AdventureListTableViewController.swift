@@ -55,7 +55,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         let adventureLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         let distanceFromUser = (locationManager.location?.distance(from: adventureLocation) ?? 0.0) / 1609.344
         let roundedDistance = (Double(Int(distanceFromUser * 100)))/100
-        cell.distanceAwayLabel.text = String(roundedDistance) + " miles away"
+        cell.distanceAwayLabel.text = String(roundedDistance) + " miles"
     } else {
         cell.distanceAwayLabel.isHidden = true
     }

@@ -13,10 +13,27 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photoImageView: UIImageView!
     
-    var photo: UIImage? {
+    var photoPair: PhotoPair? {
         didSet {
-            photoImageView.image = photo
+            updateViews()
         }
     }
     
+    func updateViews() {
+        if let photo = photoPair?.image {
+            self.photoImageView.image = photo
+        }else {
+            fetchAndSetImage()
+        }
+    }
+    
+    func fetchAndSetImage() {
+        guard let url = photoPair?.photoUrl else { return }
+        FirebaseManager.fetchPhotoFromFirebase(relativePath: url) { (_, image) in
+            DispatchQueue.main.async {
+                self.photoPair?.image = image
+                self.photoImageView.image = image
+            }
+        }
+    }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E912035F221771C8006C4F16 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */; };
-		E94F5977221DF23800845C7D /* DistanceFromUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94F5976221DF23800845C7D /* DistanceFromUser.swift */; };
 		E9606073220A11C4009E6801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606072220A11C4009E6801 /* AppDelegate.swift */; };
 		E9606078220A11C4009E6801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9606076220A11C4009E6801 /* Main.storyboard */; };
 		E960607B220A11C4009E6801 /* Xplore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9606079220A11C4009E6801 /* Xplore.xcdatamodeld */; };
@@ -31,16 +30,15 @@
 		E96D2F34221730560031DF9F /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D2F33221730550031DF9F /* CustomPointAnnotation.swift */; };
 		E9B12F2D2211F9C100C76D93 /* CreateAdventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */; };
 		E9B12F2F2211FC7200C76D93 /* MyAdventuresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */; };
-		E9B12F312212016100C76D93 /* MyAdventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F302212016100C76D93 /* MyAdventureViewController.swift */; };
 		E9B12F352212349600C76D93 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F342212349600C76D93 /* UIViewControllerExtension.swift */; };
 		E9B12F37221235D200C76D93 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F36221235D200C76D93 /* PhotoCollectionViewCell.swift */; };
 		E9B12F39221239A800C76D93 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F38221239A800C76D93 /* StyleGuide.swift */; };
-		E9B12F3B22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F3A22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift */; };
 		E9B12F3D22137B6900C76D93 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F3C22137B6900C76D93 /* MapViewController.swift */; };
 		E9B12F3F22137BA500C76D93 /* MapAndListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F3E22137BA500C76D93 /* MapAndListViewController.swift */; };
 		E9B12F4122137BBC00C76D93 /* AdventureListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F4022137BBC00C76D93 /* AdventureListTableViewController.swift */; };
-		E9B12F4322139D2200C76D93 /* MyPhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F4222139D2100C76D93 /* MyPhotoDetailViewController.swift */; };
 		E9B12F472213A86600C76D93 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B12F462213A86600C76D93 /* MapKit.framework */; };
+		E9B2859F221F1C6C001B7817 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B2859E221F1C6C001B7817 /* PaddingTextField.swift */; };
+		E9B285A3221F4F25001B7817 /* PhotoPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B285A2221F4F25001B7817 /* PhotoPair.swift */; };
 		E9B9EEBD220CA84500410A4C /* AppUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9EEBC220CA84500410A4C /* AppUserController.swift */; };
 		E9B9EEBF220CB45400410A4C /* AdventureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9EEBE220CB45400410A4C /* AdventureController.swift */; };
 		E9B9EEC1220CEB7F00410A4C /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9EEC0220CEB7F00410A4C /* PhotoController.swift */; };
@@ -56,7 +54,6 @@
 		AA6C3EE04F3A1EFAA274119E /* Pods-Xplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xplore/Pods-Xplore.release.xcconfig"; sourceTree = "<group>"; };
 		E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		E912037E221CDD53006C4F16 /* Xplore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Xplore.entitlements; sourceTree = "<group>"; };
-		E94F5976221DF23800845C7D /* DistanceFromUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceFromUser.swift; sourceTree = "<group>"; };
 		E960606F220A11C4009E6801 /* Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9606072220A11C4009E6801 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9606077220A11C4009E6801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,16 +78,15 @@
 		E96D2F33221730550031DF9F /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomPointAnnotation.swift; path = Xplore/Views/CustomPointAnnotation.swift; sourceTree = SOURCE_ROOT; };
 		E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdventureViewController.swift; sourceTree = "<group>"; };
 		E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdventuresTableViewCell.swift; sourceTree = "<group>"; };
-		E9B12F302212016100C76D93 /* MyAdventureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdventureViewController.swift; sourceTree = "<group>"; };
 		E9B12F342212349600C76D93 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		E9B12F36221235D200C76D93 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9B12F38221239A800C76D93 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
-		E9B12F3A22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9B12F3C22137B6900C76D93 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E9B12F3E22137BA500C76D93 /* MapAndListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAndListViewController.swift; sourceTree = "<group>"; };
 		E9B12F4022137BBC00C76D93 /* AdventureListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureListTableViewController.swift; sourceTree = "<group>"; };
-		E9B12F4222139D2100C76D93 /* MyPhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhotoDetailViewController.swift; sourceTree = "<group>"; };
 		E9B12F462213A86600C76D93 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E9B2859E221F1C6C001B7817 /* PaddingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
+		E9B285A2221F4F25001B7817 /* PhotoPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPair.swift; sourceTree = "<group>"; };
 		E9B9EEBC220CA84500410A4C /* AppUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserController.swift; sourceTree = "<group>"; };
 		E9B9EEBE220CB45400410A4C /* AdventureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureController.swift; sourceTree = "<group>"; };
 		E9B9EEC0220CEB7F00410A4C /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
@@ -133,7 +129,7 @@
 		E94F5973221DDEC800845C7D /* Helper Fuctions */ = {
 			isa = PBXGroup;
 			children = (
-				E94F5976221DF23800845C7D /* DistanceFromUser.swift */,
+				E9B2859E221F1C6C001B7817 /* PaddingTextField.swift */,
 			);
 			path = "Helper Fuctions";
 			sourceTree = "<group>";
@@ -204,6 +200,7 @@
 				E96060A7220B872E009E6801 /* FirebaseStorable.swift */,
 				E96060A9220B9BED009E6801 /* Adventure.swift */,
 				E96060AB220BA539009E6801 /* Photo.swift */,
+				E9B285A2221F4F25001B7817 /* PhotoPair.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,8 +228,6 @@
 				E960609A220A2EB5009E6801 /* LoginPageViewController.swift */,
 				E9B12F3E22137BA500C76D93 /* MapAndListViewController.swift */,
 				E9B12F3C22137B6900C76D93 /* MapViewController.swift */,
-				E9B12F302212016100C76D93 /* MyAdventureViewController.swift */,
-				E9B12F4222139D2100C76D93 /* MyPhotoDetailViewController.swift */,
 				E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */,
 				E9B9EEC8220F46EF00410A4C /* SettingsViewController.swift */,
 				E960609E220A2EDE009E6801 /* SignUpViewController.swift */,
@@ -245,7 +240,6 @@
 			children = (
 				E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */,
 				E9B12F36221235D200C76D93 /* PhotoCollectionViewCell.swift */,
-				E9B12F3A22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift */,
 				E96D2F312215E7450031DF9F /* AdventureTableViewCell.swift */,
 				E96D2F33221730550031DF9F /* CustomPointAnnotation.swift */,
 			);
@@ -410,15 +404,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B285A3221F4F25001B7817 /* PhotoPair.swift in Sources */,
 				E9606099220A2E8A009E6801 /* IntroductionViewController.swift in Sources */,
 				E9B12F39221239A800C76D93 /* StyleGuide.swift in Sources */,
-				E9B12F312212016100C76D93 /* MyAdventureViewController.swift in Sources */,
 				E96060A8220B872E009E6801 /* FirebaseStorable.swift in Sources */,
 				E9B12F2F2211FC7200C76D93 /* MyAdventuresTableViewCell.swift in Sources */,
 				E96D2F322215E7450031DF9F /* AdventureTableViewCell.swift in Sources */,
 				E9B9EEC7220F466500410A4C /* AdventureDetailViewController.swift in Sources */,
-				E9B12F4322139D2200C76D93 /* MyPhotoDetailViewController.swift in Sources */,
-				E9B12F3B22125F1D00C76D93 /* MyPhotosCollectionViewCell.swift in Sources */,
+				E9B2859F221F1C6C001B7817 /* PaddingTextField.swift in Sources */,
 				E9B9EEBD220CA84500410A4C /* AppUserController.swift in Sources */,
 				E9B9EEC5220E48D500410A4C /* HomeViewController.swift in Sources */,
 				E9B9EEC9220F46EF00410A4C /* SettingsViewController.swift in Sources */,
@@ -431,7 +424,6 @@
 				E9B9EEBF220CB45400410A4C /* AdventureController.swift in Sources */,
 				E9B12F2D2211F9C100C76D93 /* CreateAdventureViewController.swift in Sources */,
 				E960609D220A2ECA009E6801 /* ForgotPasswordViewController.swift in Sources */,
-				E94F5977221DF23800845C7D /* DistanceFromUser.swift in Sources */,
 				E96060AC220BA539009E6801 /* Photo.swift in Sources */,
 				E96D2F34221730560031DF9F /* CustomPointAnnotation.swift in Sources */,
 				E96060A1220A5989009E6801 /* FirestoreFetchable.swift in Sources */,
@@ -595,6 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = "$(SRCROOT)/Xplore/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -617,6 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = "$(SRCROOT)/Xplore/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

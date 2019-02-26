@@ -11,10 +11,10 @@ import UIKit
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextField: PaddingTextField!
+    @IBOutlet weak var usernameTextField: PaddingTextField!
+    @IBOutlet weak var emailTextField: PaddingTextField!
+    @IBOutlet weak var passwordTextField: PaddingTextField!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
@@ -34,6 +34,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
         passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
         signupButton.layer.cornerRadius = signupButton.frame.height / 2
+        nameTextField.delegate = self
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+
     }
     
     
@@ -59,6 +64,29 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    //Textfield delegates
+    
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            usernameTextField.becomeFirstResponder()
+        } else if textField == usernameTextField {
+            emailTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
+                self.view.frame.origin.y = 0
+            }, completion: nil)
+        }
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

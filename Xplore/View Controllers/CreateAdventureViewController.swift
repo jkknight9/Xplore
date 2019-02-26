@@ -57,6 +57,10 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     private func toggleCurrentLocationEnabledButton() {
         currentLocationButton.backgroundColor = useCurrentLocation ? .xploreGreen : .lightGray
         let buttonText = useCurrentLocation ? "Using My Location" : "Not Using My location"
@@ -132,7 +136,7 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
                     
                 })
                 
-                if let data = image.jpegData(compressionQuality: 0.8) {
+                if let data = image.jpegData(compressionQuality: 1.0) {
                     if let newImage = UIImage(data: data) {
                         self.photos.append(newImage)
                         

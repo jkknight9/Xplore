@@ -17,6 +17,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var adventureTableView: UITableView!
     @IBOutlet weak var mapViewOrTableView: UISegmentedControl!
     @IBOutlet weak var createButton: UIButton!
+    @IBOutlet var signUpVIew: UIView!
+    @IBOutlet weak var landingPageImageView: UIImageView!
+    @IBOutlet weak var sigupLabel: UILabel!
     
     // Source of truth
     let cellSpacingHeight: CGFloat = 10
@@ -30,10 +33,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         adventureTableView.dataSource = self
         adventureTableView.delegate = self
         updateViews()
-    }
+       }
+    
     
     override func viewWillAppear(_ animated: Bool) {
+        signUpVIew.isHidden = AppUserController.shared.currentUser != nil ? true : false
         fetchAdventures()
+        updateViews()
     }
     
     //Fetch for users events from firebase, maybe store locally
@@ -54,12 +60,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         nameLabel.text = currentUser?.name
         usernameLabel.text = currentUser?.username
         if let currentUser = AppUserController.shared.currentUser {
-            AppUserController.shared.getProfilePic(for: currentUser, completion: { (image) in
+            if let profilePicture = AppUserController.shared.currentUser?.profilePic {
                 DispatchQueue.main.async {
-                    self.profilePicImageView.image = image
+                    self.profilePicImageView.image = profilePicture
                 }
-            })
+            }else {
+                AppUserController.shared.getProfilePic(for: currentUser, completion: { (image) in
+                    DispatchQueue.main.async {
+                        self.profilePicImageView.image = image
+                        AppUserController.shared.currentUser?.profilePic = image
+                    }
+                })
+            }
         }
+    }
+    
+    @IBAction func signUpButtonTapped(_ sender: Any) {
+        let viewController = UIStoryboard(name: "SignInFlow", bundle: nil).instantiateViewController(withIdentifier: "signInVC") as UIViewController
+        self.present(viewController, animated:  true, completion: nil)
     }
     
     @IBAction func createAdventureButtonTapped(_ sender: Any) {
@@ -81,7 +99,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         adventureCell.adventureName.text = adventure.adventureName
         adventureCell.adventureDetails.text = adventure.details
         adventureCell.layer.shadowOpacity = 0.5
-        adventureCell.layer.shadowOffset = CGSize(width: 10, height: 10)
+        adventureCell.layer.shadowOffset = CGSize(width: 5, height: 5)
         
         
         adventureCell.clipsToBounds = true
@@ -112,8 +130,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toMyAdventureDetail" {
-            if let destinationVC = segue.destination as? MyAdventureViewController {
+        if segue.identifier == "toDetailVC" {
+            if let destinationVC = segue.destination as? AdventureDetailViewController {
                 if let indexPath = adventureTableView.indexPathForSelectedRow {
                     let adventure = AdventureController.shared.adventures[indexPath.row]
                     destinationVC.adventure = adventure
