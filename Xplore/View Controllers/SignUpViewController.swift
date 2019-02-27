@@ -45,7 +45,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     //   MARK: - Actions
     @IBAction func singupButtonTapped(_ sender: UIButton) {
         guard let name = nameTextField.text,
-        !name.isEmpty,
         let email = emailTextField.text,
         !email.isEmpty,
         let username = usernameTextField.text,

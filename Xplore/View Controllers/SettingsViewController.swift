@@ -123,7 +123,7 @@ class SettingsViewController: UIViewController {
         FirebaseManager.deleteLoggedInUser { (success) in
             if success {
                 print("User Deleted❌")
-                self.navigationController?.popToRootViewController(animated: true)
+                self.performSegue(withIdentifier: "landingPage", sender: self)
             } else {
                 print("Error deleting user.")
             }

@@ -27,6 +27,14 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func emailLinkButtonTapped(_ sender: Any) {
+        guard let email = emailTextField.text else { return }
+        if email.isEmpty {
+        } else {
+            AppUserController.shared.forgotPassword(emailAddess: email) { (success) in
+                if success {
+                }
+            }
+        }
     }
     
     @IBAction func backToLoginButtonTapped(_ sender: Any) {

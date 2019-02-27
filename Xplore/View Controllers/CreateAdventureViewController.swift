@@ -12,14 +12,14 @@ import CoreLocation
 import Photos
 import BSImagePicker
 
-class CreateAdventureViewController: UIViewController, UITextViewDelegate {
+class CreateAdventureViewController: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var adventureNameTextField: UITextField!
     @IBOutlet weak var detailsTextView: UITextView!
     @IBOutlet weak var uploadPhotosButton: UIButton!
     @IBOutlet weak var currentLocationButton: UIButton!
-    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var photosCollectionView: UICollectionView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     private let locationManager = CLLocationManager()
     var photos: [UIImage] = []
@@ -32,6 +32,7 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         photosCollectionView.dataSource = self
+        scrollView.delegate = self
         adventureNameTextField.layer.borderWidth = 2
         adventureNameTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
         adventureNameTextField.layer.cornerRadius = 5
@@ -51,6 +52,7 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (detailsTextView.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !detailsTextView.text.isEmpty
+        setDoneOnKeyboard()
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -61,9 +63,22 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
         view.endEditing(true)
     }
     
+    func setDoneOnKeyboard() {
+        let keyboardToolBar = UIToolbar()
+        keyboardToolBar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
+        keyboardToolBar.items = [flexBarButton, doneBarButton]
+        detailsTextView.inputAccessoryView = keyboardToolBar
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     private func toggleCurrentLocationEnabledButton() {
         currentLocationButton.backgroundColor = useCurrentLocation ? .xploreGreen : .lightGray
-        let buttonText = useCurrentLocation ? "Using My Location" : "Not Using My location"
+        let buttonText = useCurrentLocation ? "Using My Location For Adventure" : "Not Using My location For Adventure"
         currentLocationButton.setTitle(buttonText, for: .normal)
     }
     
@@ -103,7 +118,7 @@ class CreateAdventureViewController: UIViewController, UITextViewDelegate {
     
     
     @IBAction func uploadPhotosButtonTapped(_ sender: Any) {
-        //        presentImagePicker()
+        self.selectedAssests = []
         let vc = BSImagePickerViewController()
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) -> Void in
             
