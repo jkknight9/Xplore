@@ -52,6 +52,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     cell.layer.shadowOpacity = 0.5
     cell.layer.shadowOffset = CGSize(width: 10, height: 10)
     if let location = adventure.location {
+        cell.distanceAwayLabel.isHidden = false
         let adventureLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         let distanceFromUser = (locationManager.location?.distance(from: adventureLocation) ?? 0.0) / 1609.344
         let roundedDistance = (Double(Int(distanceFromUser * 100)))/100
