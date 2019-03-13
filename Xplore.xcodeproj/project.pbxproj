@@ -10,7 +10,6 @@
 		E912035F221771C8006C4F16 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */; };
 		E9606073220A11C4009E6801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606072220A11C4009E6801 /* AppDelegate.swift */; };
 		E9606078220A11C4009E6801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9606076220A11C4009E6801 /* Main.storyboard */; };
-		E960607B220A11C4009E6801 /* Xplore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9606079220A11C4009E6801 /* Xplore.xcdatamodeld */; };
 		E960607D220A11C9009E6801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E960607C220A11C9009E6801 /* Assets.xcassets */; };
 		E9606080220A11C9009E6801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E960607E220A11C9009E6801 /* LaunchScreen.storyboard */; };
 		E9606088220A1586009E6801 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9606087220A1585009E6801 /* GoogleService-Info.plist */; };
@@ -57,7 +56,6 @@
 		E960606F220A11C4009E6801 /* Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9606072220A11C4009E6801 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9606077220A11C4009E6801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E960607A220A11C4009E6801 /* Xplore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Xplore.xcdatamodel; sourceTree = "<group>"; };
 		E960607C220A11C9009E6801 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E960607F220A11C9009E6801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9606081220A11C9009E6801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				E960607E220A11C9009E6801 /* LaunchScreen.storyboard */,
 				E9606081220A11C9009E6801 /* Info.plist */,
 				E9606087220A1585009E6801 /* GoogleService-Info.plist */,
-				E9606079220A11C4009E6801 /* Xplore.xcdatamodeld */,
 				E9B12F38221239A800C76D93 /* StyleGuide.swift */,
 			);
 			path = Resources;
@@ -341,7 +338,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Xplore/Pods-Xplore-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Xplore/Pods-Xplore-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/BSImageView/BSImageView.framework",
@@ -349,6 +346,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -365,6 +364,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -372,7 +373,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Xplore/Pods-Xplore-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Xplore/Pods-Xplore-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		36F4941E03E17ADBE1CB8C17 /* [CP] Check Pods Manifest.lock */ = {
@@ -435,7 +436,6 @@
 				E9B12F352212349600C76D93 /* UIViewControllerExtension.swift in Sources */,
 				E960609B220A2EB5009E6801 /* LoginPageViewController.swift in Sources */,
 				E9B9EEC1220CEB7F00410A4C /* PhotoController.swift in Sources */,
-				E960607B220A11C4009E6801 /* Xplore.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,19 +645,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E9606079220A11C4009E6801 /* Xplore.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E960607A220A11C4009E6801 /* Xplore.xcdatamodel */,
-			);
-			currentVersion = E960607A220A11C4009E6801 /* Xplore.xcdatamodel */;
-			path = Xplore.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E9606067220A11C4009E6801 /* Project object */;
 }

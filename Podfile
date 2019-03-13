@@ -12,5 +12,6 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod "BSImagePicker", "~> 2.8"
+pod 'RealmSwift'
 
 end
