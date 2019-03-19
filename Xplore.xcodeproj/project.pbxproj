@@ -27,6 +27,8 @@
 		E96060AC220BA539009E6801 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060AB220BA539009E6801 /* Photo.swift */; };
 		E96D2F322215E7450031DF9F /* AdventureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D2F312215E7450031DF9F /* AdventureTableViewCell.swift */; };
 		E96D2F34221730560031DF9F /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D2F33221730550031DF9F /* CustomPointAnnotation.swift */; };
+		E987C05C22414F2200BE24A5 /* AdventureRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987C05B22414F2200BE24A5 /* AdventureRealm.swift */; };
+		E987C05E224152C200BE24A5 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987C05D224152C200BE24A5 /* RealmController.swift */; };
 		E9B12F2D2211F9C100C76D93 /* CreateAdventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */; };
 		E9B12F2F2211FC7200C76D93 /* MyAdventuresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */; };
 		E9B12F352212349600C76D93 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B12F342212349600C76D93 /* UIViewControllerExtension.swift */; };
@@ -74,6 +76,8 @@
 		E96060AB220BA539009E6801 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		E96D2F312215E7450031DF9F /* AdventureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureTableViewCell.swift; sourceTree = "<group>"; };
 		E96D2F33221730550031DF9F /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomPointAnnotation.swift; path = Xplore/Views/CustomPointAnnotation.swift; sourceTree = SOURCE_ROOT; };
+		E987C05B22414F2200BE24A5 /* AdventureRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureRealm.swift; sourceTree = "<group>"; };
+		E987C05D224152C200BE24A5 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 		E9B12F2C2211F9C100C76D93 /* CreateAdventureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdventureViewController.swift; sourceTree = "<group>"; };
 		E9B12F2E2211FC7200C76D93 /* MyAdventuresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdventuresTableViewCell.swift; sourceTree = "<group>"; };
 		E9B12F342212349600C76D93 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -193,9 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				E96060A0220A5989009E6801 /* FirestoreFetchable.swift */,
-				E96060A5220A667D009E6801 /* AppUser.swift */,
 				E96060A7220B872E009E6801 /* FirebaseStorable.swift */,
+				E96060A5220A667D009E6801 /* AppUser.swift */,
 				E96060A9220B9BED009E6801 /* Adventure.swift */,
+				E987C05B22414F2200BE24A5 /* AdventureRealm.swift */,
 				E96060AB220BA539009E6801 /* Photo.swift */,
 				E9B285A2221F4F25001B7817 /* PhotoPair.swift */,
 			);
@@ -207,6 +212,7 @@
 			children = (
 				E9B9EEBC220CA84500410A4C /* AppUserController.swift */,
 				E9B9EEBE220CB45400410A4C /* AdventureController.swift */,
+				E987C05D224152C200BE24A5 /* RealmController.swift */,
 				E9B9EEC0220CEB7F00410A4C /* PhotoController.swift */,
 			);
 			path = "Model Controllers";
@@ -419,6 +425,7 @@
 				E9B12F4122137BBC00C76D93 /* AdventureListTableViewController.swift in Sources */,
 				E960609F220A2EDE009E6801 /* SignUpViewController.swift in Sources */,
 				E9606073220A11C4009E6801 /* AppDelegate.swift in Sources */,
+				E987C05C22414F2200BE24A5 /* AdventureRealm.swift in Sources */,
 				E96060AA220B9BED009E6801 /* Adventure.swift in Sources */,
 				E9B12F3F22137BA500C76D93 /* MapAndListViewController.swift in Sources */,
 				E96060A4220A5C68009E6801 /* FirebaseManager.swift in Sources */,
@@ -431,6 +438,7 @@
 				E9B12F37221235D200C76D93 /* PhotoCollectionViewCell.swift in Sources */,
 				E96060A6220A667D009E6801 /* AppUser.swift in Sources */,
 				E9606097220A2E58009E6801 /* LandingPageViewController.swift in Sources */,
+				E987C05E224152C200BE24A5 /* RealmController.swift in Sources */,
 				E912035F221771C8006C4F16 /* PhotoDetailViewController.swift in Sources */,
 				E9B12F3D22137B6900C76D93 /* MapViewController.swift in Sources */,
 				E9B12F352212349600C76D93 /* UIViewControllerExtension.swift in Sources */,

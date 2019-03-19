@@ -120,15 +120,7 @@ class FirebaseManager {
                     print("User deleted")
                 }
             }
-//            let photoCollectionReference = Firestore.firestore().collection("adventurePhotos")
             
-//            fetchFireStoreWithFieldAndCriteria(for: "creatorID", criteria: userID, inArray: false) { (photos: [Photo]?) in
-//                if let photos = photos {
-//                    for photo in photos {
-//                        deletePhotoFromFireBase(uuid: photo.uuid, c)
-//                    }
-//                }
-            //            }
             user.delete { (error) in
                  if let error = error {
                     print("💩There was an error in \(#function) ; \(error) ; \(error.localizedDescription) 💩")

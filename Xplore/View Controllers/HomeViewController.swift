@@ -40,17 +40,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         signUpVIew.isHidden = AppUserController.shared.currentUser != nil ? true : false
         fetchAdventures()
         updateViews()
+        RealmController.shared.sync()
     }
     
     //Fetch for users events from firebase, maybe store locally
     func fetchAdventures() {
-        guard let currentUser = currentUser else { return}
-        FirebaseManager.fetchFireStoreWithFieldAndCriteria(for: "creatorID", criteria: currentUser.uuid, inArray: false) { (adventures: [Adventure]?) in
-            if let adventures = adventures {
-                AdventureController.shared.adventures = adventures
-                DispatchQueue.main.async {
-                    self.adventureTableView.reloadData()                    
-                }
+        guard let currentUser = currentUser else {return}
+        AdventureController.shared.fetchAdventures(currentUser: currentUser) {
+            DispatchQueue.main.async {
+                self.adventureTableView.reloadData()
             }
         }
     }

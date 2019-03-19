@@ -108,4 +108,13 @@ class AdventureController {
             completion(true)
         }
     }
+    //Fetch for users events from firebase, maybe store locally
+    func fetchAdventures(currentUser: AppUser, completion: @escaping () -> Void) {
+        FirebaseManager.fetchFireStoreWithFieldAndCriteria(for: "creatorID", criteria: currentUser.uuid, inArray: false) { (adventures: [Adventure]?) in
+            if let adventures = adventures {
+                AdventureController.shared.adventures = adventures
+            }
+            completion()
+        }
+    }
 }

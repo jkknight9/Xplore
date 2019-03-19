@@ -25,7 +25,6 @@ class Adventure: FirestoreFetchable, Equatable {
     var location: CLLocationCoordinate2D?
     var photoIDs: [String]
     var createrID: String
-    
     init(uuid: String = UUID().uuidString, adventureName: String, details: String, location: CLLocationCoordinate2D?, photoIDs: [String], createrID: String) {
         
         self.uuid = uuid

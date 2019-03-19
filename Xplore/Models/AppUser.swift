@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 
 class AppUser: FirestoreFetchable {
     
@@ -20,8 +20,7 @@ class AppUser: FirestoreFetchable {
     var emailAddress: String
     var adventureIDs: [String]?
     var profilePic: UIImage?
-    var profilePicURL: String?
-    
+    var profilePicURL: String?    
     init(uuid: String = UUID().uuidString, name: String, username: String, emailAddress: String, adventureIDs: [String]? = nil, profilePicURL: String? = nil) {
         
         self.uuid = uuid

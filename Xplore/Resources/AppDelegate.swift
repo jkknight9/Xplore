@@ -18,10 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+       
         do {
             _ = try Realm()
         } catch {
-            print("Error installing realm to project \(error)")
+            print("Error installing realm to project \(error.localizedDescription)")
         }
         return true
     }
