@@ -12,12 +12,7 @@ class PhotoDetailViewController: UIViewController {
 
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
-//    var photos: [UIImage] = [] {
-//        didSet {
-//            loadViewIfNeeded()
-//            updateViews()
-//        }
-//    }
+    let emailComposer = MessageComposer()
     
     var selectedPosition: Int = 0 {
         didSet{
@@ -25,6 +20,7 @@ class PhotoDetailViewController: UIViewController {
             updateViews()
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +52,7 @@ extension PhotoDetailViewController: UICollectionViewDataSource, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photosCell", for: indexPath) as! PhotoCollectionViewCell
         let photoPair = PhotoController.shared.photoPairs[indexPath.row]
         cell.photoPair = photoPair
+        cell.delegate = self
 //        cell.photo = photo
         return cell
     }
@@ -70,5 +67,16 @@ extension PhotoDetailViewController: UICollectionViewDataSource, UICollectionVie
     }
 }
 
+extension PhotoDetailViewController: PhotoCollectionViewCellDelegate {
+   
+    func reportButtonTapped(sender: PhotoCollectionViewCell) {
+        guard let photo = sender.photoPair else {return}
+        
+        if (self.emailComposer.canSendEmail()) {
+            let emailComposerVC = self.emailComposer.composePhotoReportEmailWith(photo: photo)
+            self.present(emailComposerVC, animated: true, completion: nil)
+        }
+    }
+}
 
 

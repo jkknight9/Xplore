@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E912035F221771C8006C4F16 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */; };
+		E9419AD0224E7814004710AC /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9419ACF224E7814004710AC /* MessageComposer.swift */; };
 		E9606073220A11C4009E6801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606072220A11C4009E6801 /* AppDelegate.swift */; };
 		E9606078220A11C4009E6801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9606076220A11C4009E6801 /* Main.storyboard */; };
 		E960607D220A11C9009E6801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E960607C220A11C9009E6801 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		AA6C3EE04F3A1EFAA274119E /* Pods-Xplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xplore/Pods-Xplore.release.xcconfig"; sourceTree = "<group>"; };
 		E912035E221771C8006C4F16 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		E912037E221CDD53006C4F16 /* Xplore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Xplore.entitlements; sourceTree = "<group>"; };
+		E9419ACF224E7814004710AC /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		E960606F220A11C4009E6801 /* Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9606072220A11C4009E6801 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9606077220A11C4009E6801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				E9B12F342212349600C76D93 /* UIViewControllerExtension.swift */,
+				E9419ACF224E7814004710AC /* MessageComposer.swift */,
 				E9606072220A11C4009E6801 /* AppDelegate.swift */,
 				E960607C220A11C9009E6801 /* Assets.xcassets */,
 				E960607E220A11C9009E6801 /* LaunchScreen.storyboard */,
@@ -432,6 +435,7 @@
 				E9B9EEBF220CB45400410A4C /* AdventureController.swift in Sources */,
 				E9B12F2D2211F9C100C76D93 /* CreateAdventureViewController.swift in Sources */,
 				E960609D220A2ECA009E6801 /* ForgotPasswordViewController.swift in Sources */,
+				E9419AD0224E7814004710AC /* MessageComposer.swift in Sources */,
 				E96060AC220BA539009E6801 /* Photo.swift in Sources */,
 				E96D2F34221730560031DF9F /* CustomPointAnnotation.swift in Sources */,
 				E96060A1220A5989009E6801 /* FirestoreFetchable.swift in Sources */,
