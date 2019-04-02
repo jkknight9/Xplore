@@ -17,6 +17,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: PaddingTextField!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var checkMarkButton: UIButton!
+    
+    var isChecked = true
     
     
     override func viewDidLoad() {
@@ -38,6 +41,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         usernameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        checkMarkButton.layer.borderWidth = 1
+        checkMarkButton.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
 
     }
     
@@ -61,6 +66,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 }
                 print("Success signing up")
             }
+        }
+    }
+    
+    @IBAction func termCheckedButton(_ sender: UIButton) {
+       isChecked = !isChecked
+        if isChecked{
+            sender.setTitle("✔️", for: .normal)
+        } else {
+            sender.setTitle("", for: .normal)
+        }
+    }
+    
+    
+    
+    @IBAction func termsAndConditionButtonTapped(_ sender: UIButton) {
+        if let url = URL(string: "https://app.termly.io/document/privacy-policy/ec303caf-9197-4434-974d-83e72a19ab3c") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            
         }
     }
     
@@ -103,18 +126,5 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         signUpErrorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
         self.present(signUpErrorAlert, animated: true)
     }
-    
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

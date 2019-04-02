@@ -19,6 +19,7 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
     
     var photos = [UIImage]()
     var adventureID: String?
+    let messageComposer = MessageComposer()
     var adventure: Adventure? {
         didSet {
             loadViewIfNeeded()
@@ -53,7 +54,7 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
     
     // Collection View Data Source Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        let photos = self.photos
+
         return PhotoController.shared.photoPairs.count
     }
     
@@ -61,8 +62,7 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCollectionViewCell
         let photoPair = PhotoController.shared.photoPairs[indexPath.row]
         cell.photoPair = photoPair
-//        let photo = photos[indexPath.row]
-//        cell.photo = photo
+
         return cell
         
     }
@@ -72,7 +72,7 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
         adventureName.text = adventure.adventureName
         adventureDetailsLabel.text = adventure.details
         constructPhotoPairs()
-//        fetchDetails(for: adventure)
+
     }
     
     func constructPhotoPairs() {
@@ -86,6 +86,16 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
         PhotoController.shared.photoPairs = photoPairs
         photosCollectionView.reloadData()
     }
+    
+     //   MARK: - Actions
+    @IBAction func reportUserContentButtonTapped(_ sender: Any) {
+        
+        if (self.messageComposer.canSendEmail()) {
+            let emailComposerVC = self.messageComposer.composePhotoReportEmailWith(adventure: adventure!)
+            self.present(emailComposerVC, animated: true, completion: nil)
+        }
+    }
+    
     
     // MARK: - Navigation
     

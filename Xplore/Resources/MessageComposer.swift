@@ -15,12 +15,12 @@ class MessageComposer: NSObject, MFMailComposeViewControllerDelegate {
         return MFMailComposeViewController.canSendMail()
     }
     
-    func composePhotoReportEmailWith(photo: PhotoPair) -> MFMailComposeViewController {
+    func composePhotoReportEmailWith(adventure: Adventure) -> MFMailComposeViewController {
         let emailComposeVC = MFMailComposeViewController()
         emailComposeVC.mailComposeDelegate = self
         emailComposeVC.setToRecipients(["jkknight9@gmail.com"])
-        emailComposeVC.setSubject("Innappropriate Photo")
-        emailComposeVC.setMessageBody("Dear Xplore,\n\nI would like to report this photo as inappropriate.\n\nPhoto ID: \(photo.photoUrl)", isHTML: false)
+        emailComposeVC.setSubject("Innappropriate Content")
+        emailComposeVC.setMessageBody("Dear Xplore,\n\nI would like to report this adventure/user as inappropriate. Due to inappropriate content please review this adventure and remove all disturbing content. \n\ncreaterID: \(adventure.createrID).  \n\nadventureID: \(adventure.uuid) ", isHTML: false)
         return emailComposeVC
     }
     

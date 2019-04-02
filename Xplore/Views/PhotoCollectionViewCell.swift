@@ -9,17 +9,12 @@
 
 import UIKit
 
-protocol PhotoCollectionViewCellDelegate: class {
-    func reportButtonTapped(sender: PhotoCollectionViewCell)
-}
+
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photoImageView: UIImageView!
     
-    let emailComposer = MessageComposer()
-    
-    weak var delegate: PhotoCollectionViewCellDelegate?
     
     var photoPair: PhotoPair? {
         didSet {
@@ -43,9 +38,5 @@ class PhotoCollectionViewCell: UICollectionViewCell {
                 self.photoImageView.image = image
             }
         }
-    }
-    
-    @IBAction func reportPhotoButtonTapped(_ sender: Any) {
-        delegate?.reportButtonTapped(sender: self)
     }
 }
