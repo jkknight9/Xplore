@@ -9,7 +9,7 @@
 import UIKit
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
-
+    
     
     @IBOutlet weak var nameTextField: PaddingTextField!
     @IBOutlet weak var usernameTextField: PaddingTextField!
@@ -21,40 +21,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var isChecked = true
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameTextField.layer.borderWidth = 1
-        nameTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
-        nameTextField.layer.cornerRadius = nameTextField.frame.height / 2
-        emailTextField.layer.borderWidth = 1
-        emailTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
-        emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
-        usernameTextField.layer.borderWidth = 1
-        usernameTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
-        usernameTextField.layer.cornerRadius = usernameTextField.frame.height / 2
-        passwordTextField.layer.borderWidth = 1
-        passwordTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
-        passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
-        signupButton.layer.cornerRadius = signupButton.frame.height / 2
-        nameTextField.delegate = self
-        usernameTextField.delegate = self
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        checkMarkButton.layer.borderWidth = 1
-        checkMarkButton.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
-
+        updateUI()
     }
     
     
     //   MARK: - Actions
     @IBAction func singupButtonTapped(_ sender: UIButton) {
         guard let name = nameTextField.text,
-        let email = emailTextField.text,
-        !email.isEmpty,
-        let username = usernameTextField.text,
-        !username.isEmpty,
-        let password = passwordTextField.text,
+            let email = emailTextField.text,
+            !email.isEmpty,
+            let username = usernameTextField.text,
+            !username.isEmpty,
+            let password = passwordTextField.text,
             !password.isEmpty, password.count >= 6 else { presentRequiredFieldAlert() ; return}
         
         AppUserController.shared.signUpUser(name: name, emailAddress: email, username: username, password: password) { (success, error) in
@@ -70,7 +50,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func termCheckedButton(_ sender: UIButton) {
-       isChecked = !isChecked
+        isChecked = !isChecked
         if isChecked{
             sender.setTitle("✔️", for: .normal)
         } else {
@@ -89,7 +69,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     //Textfield delegates
     
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {
             usernameTextField.becomeFirstResponder()
         } else if textField == usernameTextField {
@@ -126,5 +106,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         signUpErrorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
         self.present(signUpErrorAlert, animated: true)
     }
-
+    
+    func updateUI() {
+        nameTextField.layer.borderWidth = 1
+        nameTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
+        nameTextField.layer.cornerRadius = nameTextField.frame.height / 2
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
+        emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
+        usernameTextField.layer.borderWidth = 1
+        usernameTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
+        usernameTextField.layer.cornerRadius = usernameTextField.frame.height / 2
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
+        passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
+        signupButton.layer.cornerRadius = signupButton.frame.height / 2
+        nameTextField.delegate = self
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        checkMarkButton.layer.borderWidth = 1
+        checkMarkButton.layer.borderColor = #colorLiteral(red: 0.1670879722, green: 0.6660012007, blue: 0.5340312719, alpha: 1)
+    }
+    
 }

@@ -46,7 +46,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Fetch for users events from firebase, maybe store locally
     func fetchAdventures() {
         guard let currentUser = currentUser else {return}
-        AdventureController.shared.fetchAdventures(currentUser: currentUser) {
+        AdventureController.shared.fetchAdventures(currentUser: currentUser) {_ in 
             DispatchQueue.main.async {
                 self.adventureTableView.reloadData()
             }

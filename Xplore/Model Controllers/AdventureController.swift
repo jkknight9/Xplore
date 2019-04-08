@@ -101,20 +101,30 @@ class AdventureController {
         }
     }
     
-    func fetchAllAdventures(completion: @escaping (Bool) -> Void) {
+    func fetchAllAdventures(currentUser: AppUser, completion: @escaping ([Adventure]) -> Void) {
         FirebaseManager.fetchAllinACollectionFromFirestore { (allAventures: [Adventure]?) in
-            guard let allAdventures = allAventures else { completion(false) ; return }
-            self.allAdventures = allAdventures
-            completion(true)
+            if let allAdventures = allAventures {
+                if let blockedUserIDs = currentUser.blockedUserIDs {
+                    let filteredAdventures = self.allAdventures.filter{ !blockedUserIDs.contains($0.createrID)  }
+                   completion(filteredAdventures)
+                    return
+                }
+                completion(allAdventures)
+            }
         }
     }
     //Fetch for users events from firebase, maybe store locally
-    func fetchAdventures(currentUser: AppUser, completion: @escaping () -> Void) {
+    func fetchAdventures(currentUser: AppUser, completion: @escaping ([Adventure]) -> Void) {
         FirebaseManager.fetchFireStoreWithFieldAndCriteria(for: "creatorID", criteria: currentUser.uuid, inArray: false) { (adventures: [Adventure]?) in
             if let adventures = adventures {
                 AdventureController.shared.adventures = adventures
+                if let blockedUserIDs = currentUser.blockedUserIDs {
+                    let filteredAdventures = adventures.filter{ !blockedUserIDs.contains($0.createrID) }
+                    completion(filteredAdventures)
+                    return
+                }
+                completion(adventures)
             }
-            completion()
         }
     }
 }

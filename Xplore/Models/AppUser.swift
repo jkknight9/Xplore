@@ -20,8 +20,9 @@ class AppUser: FirestoreFetchable {
     var emailAddress: String
     var adventureIDs: [String]?
     var profilePic: UIImage?
-    var profilePicURL: String?    
-    init(uuid: String = UUID().uuidString, name: String, username: String, emailAddress: String, adventureIDs: [String]? = nil, profilePicURL: String? = nil) {
+    var profilePicURL: String?
+    var blockedUserIDs: [String]?
+    init(uuid: String = UUID().uuidString, name: String, username: String, emailAddress: String, adventureIDs: [String]? = nil, profilePicURL: String? = nil, blockedUserIds: [String]? = nil) {
         
         self.uuid = uuid
         self.name = name
@@ -29,6 +30,7 @@ class AppUser: FirestoreFetchable {
         self.emailAddress = emailAddress
         self.adventureIDs = adventureIDs
         self.profilePicURL = profilePicURL
+        self.blockedUserIDs = blockedUserIds
     }
     
    
@@ -50,6 +52,10 @@ class AppUser: FirestoreFetchable {
         if let profilePicURL = dictionary["profilePicURL"] as? String? {
             self.profilePicURL = profilePicURL
         }
+        
+        if let blockerUserIDs = dictionary["blockedUserIDs"] as? [String]? {
+            self.blockedUserIDs = blockerUserIDs
+        }
     }
 }
     extension AppUser {
@@ -60,8 +66,9 @@ class AppUser: FirestoreFetchable {
                 "name" : name,
                 "username" : username,
                 "emailAddress" : emailAddress,
-                "adventureIDs" : adventureIDs,
-                "profilePicURL" : profilePicURL
+                "adventureIDs" : adventureIDs as Any,
+                "profilePicURL" : profilePicURL as Any,
+                "blockedUserIDs" : blockedUserIDs as Any
             ]
         }
     }

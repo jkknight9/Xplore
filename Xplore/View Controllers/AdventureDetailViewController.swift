@@ -15,7 +15,7 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var navigateToMapsButton: UIButton!
     @IBOutlet weak var adventureDetailsLabel: UILabel!
     @IBOutlet weak var photosCollectionView: UICollectionView!
-    
+        
     
     var photos = [UIImage]()
     var adventureID: String?
@@ -88,12 +88,41 @@ class AdventureDetailViewController: UIViewController, UICollectionViewDelegate,
     }
     
      //   MARK: - Actions
-    @IBAction func reportUserContentButtonTapped(_ sender: Any) {
+    @IBAction func optionsButtonTapped(_ sender: Any) {
         
-        if (self.messageComposer.canSendEmail()) {
-            let emailComposerVC = self.messageComposer.composePhotoReportEmailWith(adventure: adventure!)
-            self.present(emailComposerVC, animated: true, completion: nil)
+        guard let adventure = adventure else {return}
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let reportAction = UIAlertAction(title: "Report Adventure", style: .default) { (_) in
+            if (self.messageComposer.canSendEmail()) {
+                let emailComposerVC = self.messageComposer.composePhotoReportEmailWith(adventure: adventure)
+                self.present(emailComposerVC, animated: true, completion: nil)
+            }
         }
+        let blockUserAction = UIAlertAction(title: "Block User", style: .default) { (_) in
+            let userToBlock = adventure.createrID
+            guard let currentUser = AppUserController.shared.currentUser else {return}
+            
+            if currentUser.blockedUserIDs == nil {
+                currentUser.blockedUserIDs = [userToBlock]
+            } else {
+                currentUser.blockedUserIDs?.append(userToBlock)
+            }
+            AppUserController.shared.changeUserInfo(user: currentUser, completion: { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(reportAction)
+        alertController.addAction(blockUserAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     

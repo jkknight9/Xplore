@@ -21,9 +21,9 @@ class RealmController {
     
     public func sync() {
         guard let currentUser = currentUser else {return}
-        AdventureController.shared.fetchAdventures(currentUser: currentUser) {
-            var adventures = AdventureController.shared.adventures
-            var realmAdventures = self.realm.objects(AdventureRealm.self)
+        AdventureController.shared.fetchAdventures(currentUser: currentUser) {_ in
+            let adventures = AdventureController.shared.adventures
+            let realmAdventures = self.realm.objects(AdventureRealm.self)
             if realmAdventures.count == 0 {
                 self.add(AdventuresToAdd: adventures)
                 return

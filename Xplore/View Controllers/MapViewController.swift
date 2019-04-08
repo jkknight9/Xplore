@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var locateButtonVIew: UIView!
     
     var locationManager = CLLocationManager()
+    let currentUser = AppUserController.shared.currentUser
     static let allAdventuresReceived = Notification.Name(rawValue: "allAdventuresReceived")
     var wasZoomed = false
     
@@ -27,14 +28,19 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         locateButtonVIew.layer.shadowOffset = CGSize(width: 5, height: 5)
         locateButtonVIew.layer.shadowOpacity = 0.5
-        AdventureController.shared.fetchAllAdventures { (success) in
-            if success {
-                NotificationCenter.default.post(name: MapViewController.allAdventuresReceived, object: nil)
-                DispatchQueue.main.async {
-                    AdventureController.shared.allAdventures.forEach({ (adventure) in
-                        self.addPinFor(adventure)
-                    })
-                }
+        fetchAllAdventures()
+      
+    }
+    
+    func fetchAllAdventures() {
+        guard let currentUser = currentUser else {return}
+        AdventureController.shared.fetchAllAdventures(currentUser: currentUser) { (adventuresToDisplay) in
+            AdventureController.shared.allAdventures = adventuresToDisplay
+            NotificationCenter.default.post(name: MapViewController.allAdventuresReceived, object: nil)
+            DispatchQueue.main.async {
+                AdventureController.shared.allAdventures.forEach({ (adventure) in
+                    self.addPinFor(adventure)
+                })
             }
         }
     }
@@ -58,7 +64,7 @@ class MapViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
             
         }
-    } 
+    }
     
     @IBAction func locateUserButtonTapped(_ sender: Any) {
         self.mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
@@ -88,7 +94,7 @@ extension MapViewController: MKMapViewDelegate {
         
         adventureDetailVC.adventure = adventure
         self.navigationController?.pushViewController(adventureDetailVC, animated: true)
-    
+        
     }
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
