@@ -12,7 +12,10 @@ import FirebaseAuth
 
 class FirebaseManager {
     
-     //   MARK: - User Functions
+    
+    static let UserUpdateNotification: Notification.Name = Notification.Name(rawValue: "userUpdated")
+    
+    //   MARK: - User Functions
     
     static func signUp(name: String, emailAddress: String, username: String, password: String, completion: @escaping (AppUser?, Error?) -> Void) {
         Auth.auth().createUser(withEmail: emailAddress, password: password) { (authResult, error) in
@@ -69,7 +72,7 @@ class FirebaseManager {
             })
         }
     }
-        // Sign out user
+    // Sign out user
     
     static func signOut(completion: @escaping (Error?) -> Void) {
         do {
@@ -80,31 +83,31 @@ class FirebaseManager {
             completion(error)
         }
     }
-        
-        static func getLoggedInUser(completion: @escaping (AppUser?) -> Void) {
-            if Auth.auth().currentUser != nil {
-                guard let user = Auth.auth().currentUser else {return}
-                
-                let uuid = user.uid
-                
-                let collectionReference = Firestore.firestore().collection("users")
-                collectionReference.document(uuid).getDocument { (fetchedUserSnapshot, error) in
-                    if let error = error {
-                        print("There was an error in \(#function): \(error.localizedDescription)")
-                        completion(nil)
-                        return
-                    }
-                    guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { completion(nil) ; return}
-                    
-                    let loggedInUser = AppUser(with: fetchedUserDictionary, id: uuid)
-                    completion(loggedInUser)
+    
+    static func getLoggedInUser(completion: @escaping (AppUser?) -> Void) {
+        if Auth.auth().currentUser != nil {
+            guard let user = Auth.auth().currentUser else {return}
+            
+            let uuid = user.uid
+            
+            let collectionReference = Firestore.firestore().collection("users")
+            collectionReference.document(uuid).getDocument { (fetchedUserSnapshot, error) in
+                if let error = error {
+                    print("There was an error in \(#function): \(error.localizedDescription)")
+                    completion(nil)
+                    return
                 }
-            } else {
-                print("No user is signed in")
-                completion(nil)
-                return
+                guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { completion(nil) ; return}
+                
+                let loggedInUser = AppUser(with: fetchedUserDictionary, id: uuid)
+                completion(loggedInUser)
             }
+        } else {
+            print("No user is signed in")
+            completion(nil)
+            return
         }
+    }
     
     // Delete User
     static func deleteLoggedInUser(completion: @escaping (Bool) -> Void) {
@@ -122,7 +125,7 @@ class FirebaseManager {
             }
             
             user.delete { (error) in
-                 if let error = error {
+                if let error = error {
                     print("💩There was an error in \(#function) ; \(error) ; \(error.localizedDescription) 💩")
                 } else {
                     print("Account was deleted for sure!!!")
@@ -146,7 +149,7 @@ class FirebaseManager {
         }
     }
     
-     //   MARK: - Fetch Functions
+    //   MARK: - Fetch Functions
     static func fetchFromFireStore<T: FirestoreFetchable>(uuid: String, completion: @escaping (T?) -> Void) {
         let collectionReference = T.collection
         collectionReference.document(uuid).getDocument { (documentSnapshot, error) in
@@ -174,7 +177,7 @@ class FirebaseManager {
             guard let documents = querySnapshot?.documents else { completion(nil) ; return }
             let dictionaries = documents.compactMap{$0.data() }
             var returnValue: [T] = []
-        
+            
             for dictionary in dictionaries {
                 guard let uuid = dictionary["uuid"] as? String,
                     let object = T(with: dictionary, id: uuid) else { continue }
@@ -208,12 +211,12 @@ class FirebaseManager {
                     let object = T(with: dictionary, id: uuid) else { print("Error  with firebasemanager!!!!❌") ;
                         completion(nil) ; return }
                 returnValue.append(object)
-                }
-            completion(returnValue)
             }
+            completion(returnValue)
         }
+    }
     
-     //   MARK: - Create, Update, Delete
+    //   MARK: - Create, Update, Delete
     
     static func saveData<T: FirestoreFetchable>(object: T, completion: @escaping (Error?) -> Void) {
         let collectionReference = T.collection
@@ -253,7 +256,7 @@ class FirebaseManager {
         }
     }
     
-     //   MARK: - Photo Storage
+    //   MARK: - Photo Storage
     
     // Upload photo from Firebase
     static func uploadPhotoToFirebase<T: FirebaseStorage>(_ object: T, completion: @escaping (URL?, Error?) -> Void) {
@@ -324,4 +327,24 @@ class FirebaseManager {
             }
         }
     }
+    
+    static func setUpListener() {
+        guard let currentUserID = AppUserController.shared.currentUser?.uuid else {return}
+        let collectionReference = Firestore.firestore().collection("users")
+        collectionReference.document(currentUserID).addSnapshotListener(includeMetadataChanges: true) { (fetchedUserSnapshot, error) in
+            if let error = error {
+                print("There was an error in \(#function): \(error.localizedDescription)")
+                return
+            }
+            guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { return}
+            
+            let loggedInUser = AppUser(with: fetchedUserDictionary, id: currentUserID)
+            AppUserController.shared.currentUser = loggedInUser
+            let notification = Notification(name: UserUpdateNotification)
+            NotificationCenter.default.post(notification)
+            print("User updated")
+        }
+    }
 }
+
+

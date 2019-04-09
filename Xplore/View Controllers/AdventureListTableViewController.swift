@@ -16,7 +16,9 @@ class AdventureListTableViewController: UIViewController, UITableViewDelegate, U
     // Source of truth
     var adventures: [Adventure]?
     var allAdventures: [Adventure]?
-    let currentUser = AppUserController.shared.currentUser
+    var currentUser: AppUser? {
+       return AppUserController.shared.currentUser
+    }
     private let refreshControl = UIRefreshControl()
     let activityIndicator = UIActivityIndicatorView()
     let locationManager = CLLocationManager()
@@ -79,6 +81,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         if let destinationVC = segue.destination as? AdventureDetailViewController {
             if let indexPath = adventureTableView.indexPathForSelectedRow {
                 let adventure = AdventureController.shared.allAdventures[indexPath.row]
+                adventureTableView.deselectRow(at: indexPath, animated: true)
                 destinationVC.adventure = adventure
                 }
             }

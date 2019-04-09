@@ -17,7 +17,9 @@ class MapViewController: UIViewController {
     @IBOutlet weak var locateButtonVIew: UIView!
     
     var locationManager = CLLocationManager()
-    let currentUser = AppUserController.shared.currentUser
+    var currentUser: AppUser? {
+        return AppUserController.shared.currentUser
+    }
     static let allAdventuresReceived = Notification.Name(rawValue: "allAdventuresReceived")
     var wasZoomed = false
     
@@ -29,10 +31,16 @@ class MapViewController: UIViewController {
         locateButtonVIew.layer.shadowOffset = CGSize(width: 5, height: 5)
         locateButtonVIew.layer.shadowOpacity = 0.5
         fetchAllAdventures()
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchAllAdventures), name: FirebaseManager.UserUpdateNotification, object: nil)
       
     }
     
-    func fetchAllAdventures() {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
+    @objc func fetchAllAdventures() {
         guard let currentUser = currentUser else {return}
         AdventureController.shared.fetchAllAdventures(currentUser: currentUser) { (adventuresToDisplay) in
             AdventureController.shared.allAdventures = adventuresToDisplay
