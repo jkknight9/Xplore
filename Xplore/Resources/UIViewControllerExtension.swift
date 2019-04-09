@@ -34,7 +34,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         present(imagePickerActionSheet, animated: true)
     }
     
-    private func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
 }

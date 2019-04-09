@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A49E35D5CD60869EFDFB93C4668BF8EE"
+               BlueprintIdentifier = "B8B003C5C17FFB6CB5961F709913812E"
                BuildableName = "BSGridCollectionViewLayout.framework"
                BlueprintName = "BSGridCollectionViewLayout"
                ReferencedContainer = "container:Pods.xcodeproj">

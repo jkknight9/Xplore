@@ -16,6 +16,7 @@ class AdventureListTableViewController: UIViewController, UITableViewDelegate, U
     // Source of truth
     var adventures: [Adventure]?
     var allAdventures: [Adventure]?
+    let currentUser = AppUserController.shared.currentUser
     private let refreshControl = UIRefreshControl()
     let activityIndicator = UIActivityIndicatorView()
     let locationManager = CLLocationManager()
@@ -29,6 +30,10 @@ class AdventureListTableViewController: UIViewController, UITableViewDelegate, U
     }
 
     @objc func reloadTableView() {
+        guard let currentUser = currentUser else {return}
+        AdventureController.shared.fetchAllAdventures(currentUser: currentUser) { (adventuresToDisplay) in
+            AdventureController.shared.allAdventures = adventuresToDisplay
+        }
         DispatchQueue.main.async {
             self.adventureTableView.reloadData()
         }

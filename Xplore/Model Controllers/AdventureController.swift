@@ -105,7 +105,7 @@ class AdventureController {
         FirebaseManager.fetchAllinACollectionFromFirestore { (allAventures: [Adventure]?) in
             if let allAdventures = allAventures {
                 if let blockedUserIDs = currentUser.blockedUserIDs {
-                    let filteredAdventures = self.allAdventures.filter{ !blockedUserIDs.contains($0.createrID)  }
+                    let filteredAdventures = allAdventures.filter{ !blockedUserIDs.contains($0.createrID)  }
                    completion(filteredAdventures)
                     return
                 }
