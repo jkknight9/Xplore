@@ -32,6 +32,7 @@ class MapViewController: UIViewController {
         locateButtonVIew.layer.shadowOpacity = 0.5
         fetchAllAdventures()
         NotificationCenter.default.addObserver(self, selector: #selector(fetchAllAdventures), name: FirebaseManager.UserUpdateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchAllAdventures), name: FirebaseManager.AdventureUpdateNotification, object: nil)
       
     }
     

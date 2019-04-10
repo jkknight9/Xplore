@@ -106,6 +106,7 @@ class AdventureController {
             if let allAdventures = allAventures {
                 if let blockedUserIDs = currentUser.blockedUserIDs {
                     let filteredAdventures = allAdventures.filter{ !blockedUserIDs.contains($0.createrID)  }
+                    FirebaseManager.setUpListenerForAdventure()
                    completion(filteredAdventures)
                     return
                 }

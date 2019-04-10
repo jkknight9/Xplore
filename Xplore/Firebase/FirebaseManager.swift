@@ -14,6 +14,7 @@ class FirebaseManager {
     
     
     static let UserUpdateNotification: Notification.Name = Notification.Name(rawValue: "userUpdated")
+    static let AdventureUpdateNotification: Notification.Name = Notification.Name("adventureUpdated")
     
     //   MARK: - User Functions
     
@@ -328,7 +329,7 @@ class FirebaseManager {
         }
     }
     
-    static func setUpListener() {
+    static func setUpListenerForUser() {
         guard let currentUserID = AppUserController.shared.currentUser?.uuid else {return}
         let collectionReference = Firestore.firestore().collection("users")
         collectionReference.document(currentUserID).addSnapshotListener(includeMetadataChanges: true) { (fetchedUserSnapshot, error) in
@@ -337,7 +338,6 @@ class FirebaseManager {
                 return
             }
             guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { return}
-            
             let loggedInUser = AppUser(with: fetchedUserDictionary, id: currentUserID)
             AppUserController.shared.currentUser = loggedInUser
             let notification = Notification(name: UserUpdateNotification)
@@ -345,6 +345,24 @@ class FirebaseManager {
             print("User updated")
         }
     }
+    
+    static func setUpListenerForAdventure() {
+        Firestore.firestore().collection("adventures").document("adventures").addSnapshotListener { (documentSnapShot, error) in
+            guard let document = documentSnapShot, document.exists, let data = document.data() else {
+                if let error = error {
+                    print("Error fetching document: \(error)")
+                    print("Document data was empty.")
+                    return
+                }
+                return
+            }
+            print("Current data: \(data)")
+            let notification = Notification(name: AdventureUpdateNotification)
+            NotificationCenter.default.post(notification)
+            print("Adventure Updated")
+        }
+    }
 }
+
 
 
