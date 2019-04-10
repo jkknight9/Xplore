@@ -44,7 +44,20 @@ class SettingsViewController: UIViewController {
         guard let currentUser = currentUser else {return}
         nameLabel.text = currentUser.name
         usernameLabel.text = currentUser.username
-        profilePicImageView.image = currentUser.profilePic
+        if let currentUser = AppUserController.shared.currentUser {
+            if let profilePicture = AppUserController.shared.currentUser?.profilePic {
+                DispatchQueue.main.async {
+                    self.profilePicImageView.image = profilePicture
+                }
+            }else {
+                AppUserController.shared.getProfilePic(for: currentUser, completion: { (image) in
+                    DispatchQueue.main.async {
+                        self.profilePicImageView.image = image
+                        AppUserController.shared.currentUser?.profilePic = image
+                    }
+                })
+            }
+        }
     }
     
     //   MARK: - Actions

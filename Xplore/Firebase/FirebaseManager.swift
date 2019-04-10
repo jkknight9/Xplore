@@ -347,12 +347,11 @@ class FirebaseManager {
     }
     
     static func setUpListenerForAdventure() {
+        let adventures = AdventureController.shared.allAdventures
         Firestore.firestore().collection("adventures").document("adventures").addSnapshotListener { (documentSnapShot, error) in
             guard let document = documentSnapShot, document.exists, let data = document.data() else {
                 if let error = error {
                     print("Error fetching document: \(error)")
-                    print("Document data was empty.")
-                    return
                 }
                 return
             }
