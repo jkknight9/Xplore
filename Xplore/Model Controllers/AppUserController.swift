@@ -130,23 +130,5 @@ class AppUserController {
             return
         }
     }
-    
-    func blockUser(with uuid: String, completion: @escaping (Bool) -> Void) {
-        guard let currentUser = currentUser  else { completion(false) ; return}
-        
-        Firestore.firestore().collection("users").document(currentUser.uuid).updateData(["blockedUserIDs" : FieldValue.arrayUnion([uuid])]) { (error) in
-            if let error = error {
-                print("There was an error in creating a blockedUser \(error.localizedDescription)")
-                completion(false)
-                return
-            } else {
-                currentUser.blockedUserIDs?.append(uuid)
-                AppUserController.shared.changeUserInfo(user: currentUser, completion: { (_) in
-                    
-                })
-                completion(true)
-            }
-        }
-    }
 }
 

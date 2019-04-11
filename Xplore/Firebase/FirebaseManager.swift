@@ -347,21 +347,20 @@ class FirebaseManager {
     }
     
     static func setUpListenerForAdventure() {
-        let adventures = AdventureController.shared.allAdventures
-        Firestore.firestore().collection("adventures").document("adventures").addSnapshotListener { (documentSnapShot, error) in
-            guard let document = documentSnapShot, document.exists, let data = document.data() else {
-                if let error = error {
-                    print("Error fetching document: \(error)")
-                }
-                return
-            }
-            print("Current data: \(data)")
-            let notification = Notification(name: AdventureUpdateNotification)
-            NotificationCenter.default.post(notification)
+//        var adventures = AdventureController.shared.allAdventures
+//        Firestore.firestore().collection("adventures").addSnapshotListener { (documentSnapShot, error) in
+//            guard let documents = documentSnapShot?.documents else {return}
+////            let tempArray = documents.forEach{$0}
+//                if let error = error {
+//                    print("Error fetching document: \(error)")
+//                }
+//                return
+//            }
+//
+//            let notification = Notification(name: AdventureUpdateNotification)
+//            NotificationCenter.default.post(notification)
             print("Adventure Updated")
         }
     }
-}
-
 
 
