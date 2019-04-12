@@ -18,7 +18,14 @@ class AdventureController {
     private init(){}
     
     var adventures: [Adventure] = []
-    var allAdventures: [Adventure] = []
+    var allAdventures: [Adventure] = [] 
+//        get {
+//
+//        }
+//        set {
+//
+//        }
+//    }
     
     //   MARK: - CRUD Functions
     
@@ -106,7 +113,6 @@ class AdventureController {
             if let allAdventures = allAventures {
                 if let blockedUserIDs = currentUser.blockedUserIDs {
                     let filteredAdventures = allAdventures.filter{ !blockedUserIDs.contains($0.createrID)  }
-                    FirebaseManager.setUpListenerForAdventure()
                    completion(filteredAdventures)
                     return
                 }

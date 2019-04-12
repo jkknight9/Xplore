@@ -35,6 +35,7 @@ class AppUserController {
             if let currentLoggedInUser = currentLoggedInUser {
                 self.currentUser = currentLoggedInUser
                 FirebaseManager.setUpListenerForUser()
+                FirebaseManager.setUpListenerForAdventure()
                 completion(true)
                 return
             } else {

@@ -42,16 +42,12 @@ class MapViewController: UIViewController {
     
     
     @objc func fetchAllAdventures() {
-        guard let currentUser = currentUser else {return}
-        AdventureController.shared.fetchAllAdventures(currentUser: currentUser) { (adventuresToDisplay) in
-            AdventureController.shared.allAdventures = adventuresToDisplay
             NotificationCenter.default.post(name: MapViewController.allAdventuresReceived, object: nil)
             DispatchQueue.main.async {
                 AdventureController.shared.allAdventures.forEach({ (adventure) in
                     self.addPinFor(adventure)
                 })
             }
-        }
     }
     
     func addPinFor(_ adventure: Adventure) {

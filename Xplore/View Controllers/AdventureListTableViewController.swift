@@ -32,10 +32,6 @@ class AdventureListTableViewController: UIViewController, UITableViewDelegate, U
     }
 
     @objc func reloadTableView() {
-        guard let currentUser = currentUser else {return}
-        AdventureController.shared.fetchAllAdventures(currentUser: currentUser) { (adventuresToDisplay) in
-            AdventureController.shared.allAdventures = adventuresToDisplay
-        }
         DispatchQueue.main.async {
             self.adventureTableView.reloadData()
         }
